@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Tabs, Tab } from "react-bootstrap";
 import { Imagesdata } from "../../commondata/commonimages";
 
-
 export function RightSidebar() {
   const [rightsidebartoogle, setSidebartoogleright] = useState(true);
   function Outhover(toggle) {
@@ -30,7 +29,7 @@ export function RightSidebar() {
           <div className="tabs-menu border-bottom">
             <Tabs
               defaultActiveKey="side1"
-              className="nav panel-tabs tab-content rightside flex-nowrap"
+              className="nav panel-tabs tab-content"
               variant=""
             >
               <Tab eventKey="side1"  title="Profile">
@@ -499,7 +498,7 @@ export function RightSidebar() {
                         />
                         <span className="custom-switch-indicator"></span>
                         <span className="custom-switch-description mg-l-10">
-                          Aloow All Notifications
+                          Allow All Notifications
                         </span>
                       </label>
                     </div>

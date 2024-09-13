@@ -1,25 +1,25 @@
 import React, { useState } from "react";
+import * as rtl from '../assets/plugins/bootstrap/css/bootstrap.rtl.min.css?inline';
+import * as ltr from '../assets/plugins/bootstrap/css/bootstrap.min.css?inline';
 
 // Direction
 export const Rtl = () => {
-  document.querySelector(".app").classList.add("rtl");
-  document.querySelector("html").setAttribute("dir", "rtl");
-  document.getElementById("bootstrapLink").setAttribute("href", "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css");
-  document.querySelector(".app").classList.remove("ltr");
-  // document.getElementById("myonoffswitch5").checked = true;
+  document.querySelector("body")?.classList.add("rtl");
+  document.querySelector("html")?.setAttribute("dir", "rtl");
+  document.querySelector("body")?.classList.remove("ltr");
   localStorage.setItem("zanexrtl", "true");
+  document.querySelector("#myonoffswitch5").checked = true; //ltr
   localStorage.removeItem("zanexltr");
-
+  addOrRemoveCss(rtl.default);
 
 };
 export const Ltr = () => {
-  document.querySelector(".app").classList.add("ltr");
-  document.querySelector("html").setAttribute("dir", "ltr");
-  document.getElementById("bootstrapLink").setAttribute("href", "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css")
-  document.querySelector(".app").classList.remove("rtl");
-  // document.getElementById('myonoffswitch4').checked = true;
-  localStorage.setItem("zanexltr", "true");
+  document.querySelector("body")?.classList.add("ltr");
+  document.querySelector("html")?.setAttribute("dir", "ltr");
+  document.querySelector("body")?.classList.remove("rtl");
+    document.querySelector("#myonoffswitch4").checked = true; 
   localStorage.removeItem("zanexrtl");
+  addOrRemoveCss(ltr.default);
 };
 
 // Header
@@ -68,7 +68,7 @@ export const Darkheader = () => {
   document.querySelector(".app")?.classList.remove("light-header");
   document.querySelector(".app")?.classList.add("dark-header");
 
-  document.getElementById('myonoffswitch10').checked = true;
+  // document.getElementById('myonoffswitch10').checked = true;
   localStorage.setItem("zanexdarkheader", "true");
   localStorage.removeItem("zanexlightheader");
   localStorage.removeItem("zanexcolorheader");
@@ -127,6 +127,8 @@ export const GradientMenu = () => {
 export const FullWidth = () => {
   document.querySelector(".app")?.classList.remove("layout-boxed");
   document.querySelector(".app")?.classList.add("layout-fullwidth");
+  document.querySelector(".login-img")?.classList.add("layout-fullwidth");
+
 
   document.getElementById('myonoffswitch16').checked = true;
   localStorage.setItem('zanexlayoutfullwidth', "true");
@@ -135,8 +137,9 @@ export const FullWidth = () => {
 export const Boxed = () => {
   document.querySelector(".app")?.classList.remove("layout-fullwidth");
   document.querySelector(".app")?.classList.add("layout-boxed");
+  document.querySelector(".login-img")?.classList.add("layout-boxed");
 
-  document.getElementById('myonoffswitch17').checked = true;
+  // document.getElementById('myonoffswitch17').checked = true;
   localStorage.setItem('zanexlayoutboxed', "true");
   localStorage.removeItem('zanexlayoutfullwidth');
 };
@@ -180,6 +183,7 @@ export const VerticalMenu = () => {
   // 		$('#slide-left').remove('d-none');
   // 		$('#slide-right').remove('d-none');
 };
+
 export const horizontal = () => {
   document.querySelector(".app")?.classList.add("horizontal");
   document.querySelector(".main-container")?.classList.add("container");
@@ -196,11 +200,12 @@ export const horizontal = () => {
   document.querySelector(".app")?.classList.remove("sidenav-toggled");
   document.querySelector(".app")?.classList.remove("horizontal-hover");
 
-  // $('#slide-left').remove('d-none');
-  // $('#slide-right').remove('d-none');
-  document.querySelector(".horizontal .side-menu").style.flexWrap = "nowrap";
+  
+  document.querySelector('#slide-left')?.classList.remove('d-none');
+  document.querySelector('#ñslide-right')?.classList.remove('d-none');
+  // document.querySelector(".horizontal .side-menu").style.flexWrap = "nowrap";
 
-  checkHoriMenu();
+  // checkHoriMenu();
   Horizontalmenudefultclose();
   switcherArrowFn();
 
@@ -209,6 +214,7 @@ export const horizontal = () => {
   localStorage.removeItem("zanexhorizontalHover");
 };
 export const HorizontalHoverMenu = () => {
+
   document.querySelector(".app")?.classList.add("horizontal-hover");
   document.querySelector(".app")?.classList.add("horizontal");
   document.querySelector(".main-content")?.classList.add("hor-content");
@@ -243,7 +249,7 @@ export const HorizontalHoverMenu = () => {
       e?.classList.remove("is-expaned");
     }
   });
-  checkHoriMenu();
+  // checkHoriMenu();
   Horizontalmenudefultclose();
   switcherArrowFn();
 
@@ -267,19 +273,19 @@ export const LightTheme = () => {
   document.querySelector("body")?.classList.remove("gradient-menu");
 
   localStorage.setItem('zanexlightmode', true)
-  // localStorage.removeItem('zanexdarkmode');
-  // localStorage.removeItem('zanexlightheader');
-  // localStorage.removeItem('zanexlighmenu');
-  // localStorage.removeItem('zanexrtl');
+  localStorage.removeItem('zanexdarkmode');
+  localStorage.removeItem('zanexlightheader');
+  localStorage.removeItem('zanexlighmenu');
   document.getElementById('myonoffswitch6').checked = true;
-  document.querySelector("html").style = "";
-  name();
-  localStorage.clear();
+  // document.querySelector("html").style = "";
+  // name();
+  // localStorage.clear();
 };
 export const dark = () => {
   document.querySelector(".app")?.classList.add("dark-mode");
-  document.querySelector("#myonoffswitch10").checked = true;
-  document.querySelector("#myonoffswitch14").checked = true;
+  document.querySelector(".login-img")?.classList.add("dark-mode");
+  // document.querySelector("#myonoffswitch10").checked = true;
+  // document.querySelector("#myonoffswitch14").checked = true;
 
   document.querySelector(".app")?.classList.remove("light-mode");
     document.querySelector("body")?.classList.remove("light-header");
@@ -291,7 +297,6 @@ export const dark = () => {
     document.querySelector("body")?.classList.remove("app-header");
     document.querySelector("body")?.classList.remove("app-sidebar");
 
-    
   document.getElementById('myonoffswitch7').checked = true;
     localStorage.setItem("zanexdarkmode" , "true");
     localStorage.removeItem("zanexlightmode");
@@ -340,9 +345,6 @@ export const ThemePrimaryColor = () => {
     const rgbaValue10 = `rgba(${r}, ${g}, ${b}, 0.58)`;
     const rgbaValue11 = `rgba(${r}, ${g}, ${b}, 1)`;
 
-
-
-
     document.documentElement.style.setProperty("--primary01", rgbaValue1);
     document.documentElement.style.setProperty("--primary02", rgbaValue2);
     document.documentElement.style.setProperty("--primary03", rgbaValue3);
@@ -360,16 +362,14 @@ export const ThemePrimaryColor = () => {
     localStorage.setItem("zanexprimarycolor", rgbaValue);
     localStorage.setItem("zanexprimarybordercolor", rgbaValue11);
     localStorage.setItem("zanexprimaryhovercolor", rgbaValue10);
-
-
-
+    localStorage.removeItem("zanexdarkmode");
+    localStorage.removeItem("zanexlightmode");
   };
 
   return (
     <div className="ThemePrimaryColor">
       <ColorPicker onChange={handleInput} value={state} />
       <div className="my-bootstrap-component" style={{ backgroundColor: 'var rgba(--primary-color)' }} >
-      
       </div>
     </div>
   );
@@ -394,10 +394,6 @@ export const Backgroundcolor = () => {
     const rgbaValue9 = `rgba(${r}, ${g}, ${b}, 0.9)`;
     const rgbaValue10 = `rgba(${r}, ${g}, ${b}, 0.87)`;
 
-
-
-
-
     document.documentElement.style.setProperty("--primary01", rgbaValue1);
     document.documentElement.style.setProperty("--primary02", rgbaValue2);
     document.documentElement.style.setProperty("--primary03", rgbaValue3);
@@ -411,15 +407,12 @@ export const Backgroundcolor = () => {
     document.documentElement.style.setProperty("--dark-body", rgbaValue10);
     document.documentElement.style.setProperty("--dark-theme", rgbaValue);
 
-
-
-
     localStorage.setItem("zanexbgcolor", rgbaValue10);
     localStorage.setItem("zanexthemecolor", rgbaValue);
     localStorage.setItem("zanexdarkMode", true);
 
-
     document.querySelector('.app').classList.add('dark-mode');
+  document.querySelector(".login-img")?.classList.add("dark-mode");
     document.querySelector('.app').classList.remove('light-mode');
     document.querySelector('.app').classList.remove('light-menu');
     document.querySelector('.app').classList.remove('color-menu');
@@ -427,17 +420,11 @@ export const Backgroundcolor = () => {
     document.querySelector('.app').classList.remove('light-header');
     document.querySelector('.app').classList.remove('color-header');
     document.querySelector('.app').classList.remove('dark-header');
-    document.getElementById('myonoffswitch2').checked = true;
-    document.getElementById('myonoffswitch5').checked = true;
     document.getElementById('myonoffswitch8').checked = true;
     document.getElementById('myonoffswitch7').checked = true;
     localStorage.removeItem('zanexlightmode');
     localStorage.removeItem('zanexlightheader');
     localStorage.removeItem('zanexlighmenu');
-
-
-
-
   };
 
   return (
@@ -449,7 +436,6 @@ export const Backgroundcolor = () => {
     </div>
   );
 };
-
 
 /*Transparent Bg-Image Style Start*/
 
@@ -474,7 +460,6 @@ export function bgimage1() {
   localStorage.removeItem("zanextransparentBgColor");
   document.querySelector("html").style.removeProperty("--transparent-body");
 }
-
 export function bgimage2() {
   transparentStyle();
   document.querySelector(".app")?.classList.add("bg-img2");
@@ -496,7 +481,6 @@ export function bgimage2() {
   localStorage.removeItem("zanextransparentPrimaryColor");
   localStorage.removeItem("zanextransparentBgColor");
 }
-
 export function bgimage3() {
   document.querySelector(".app")?.classList.add("bg-img3");
   document.querySelector(".app")?.classList.remove("bg-img1");
@@ -519,7 +503,6 @@ export function bgimage3() {
   localStorage.removeItem("zanextransparentPrimaryColor");
   localStorage.removeItem("zanextransparentBgColor");
 }
-
 export function bgimage4() {
   document.querySelector(".app")?.classList.add("bg-img4");
   document.querySelector(".app")?.classList.remove("bg-img1");
@@ -540,58 +523,6 @@ export function bgimage4() {
   localStorage.removeItem("zanexdarkPrimaryColor");
   localStorage.removeItem("zanextransparentPrimaryColor");
   localStorage.removeItem("zanextransparentBgColor");
-}
-
-/*Transparent Bg-Image Style End*/
-
-export function checkHoriMenu() {
-  let menuWidth = document.querySelector(".horizontal-main");
-  let menuItems = document.querySelector(".side-menu");
-  let mainSidemenuWidth = document.querySelector(".main-sidemenu");
-
-  let menuContainerWidth =
-    menuWidth?.offsetWidth - mainSidemenuWidth?.offsetWidth;
-  let marginLeftValue = Math.ceil(
-    Number(window.getComputedStyle(menuItems).marginLeft.split("px")[0])
-  );
-  let marginRightValue = Math.ceil(
-    Number(window.getComputedStyle(menuItems).marginRight.split("px")[0])
-  );
-  let check =
-    menuItems.scrollWidth + (0 - menuWidth?.offsetWidth) + menuContainerWidth;
-
-  if (document.querySelector(".app")?.classList.contains("ltr")) {
-    menuItems.style.marginRight = 0;
-  } else {
-    menuItems.style.marginLeft = 0;
-  }
-
-  if (menuItems.scrollWidth - 2 < menuWidth?.offsetWidth - menuContainerWidth) {
-    document.querySelector(".slide-left")?.classList.add("d-none");
-    document.querySelector(".slide-right")?.classList.add("d-none");
-    document.querySelector(".slide-leftRTL")?.classList.add("d-none");
-    document.querySelector(".slide-rightRTL")?.classList.add("d-none");
-  } else if (marginLeftValue !== 0 || marginRightValue !== 0) {
-    document.querySelector(".slide-right")?.classList.remove("d-none");
-    document.querySelector(".slide-rightRTL")?.classList.remove("d-none");
-  } else if (marginLeftValue !== -check || marginRightValue !== -check) {
-    document.querySelector(".slide-left")?.classList.remove("d-none");
-    document.querySelector(".slide-leftRTL")?.classList.remove("d-none");
-  }
-  if (menuItems.scrollWidth - 2 > menuWidth?.offsetWidth - menuContainerWidth) {
-    document.querySelector(".slide-left")?.classList.remove("d-none");
-    document.querySelector(".slide-right")?.classList.remove("d-none");
-    document.querySelector(".slide-leftRTL")?.classList.remove("d-none");
-    document.querySelector(".slide-rightRTL")?.classList.remove("d-none");
-  }
-  if (marginLeftValue === 0 || marginRightValue === 0) {
-    document.querySelector(".slide-left")?.classList.add("d-none");
-    document.querySelector(".slide-leftRTL")?.classList.add("d-none");
-  }
-  if (marginLeftValue !== 0 || marginRightValue !== 0) {
-    document.querySelector(".slide-left")?.classList.remove("d-none");
-    document.querySelector(".slide-leftRTL")?.classList.remove("d-none");
-  }
 }
 
 export function handleThemeUpdate(cssVars) {
@@ -630,7 +561,6 @@ export function hexToRgba(hexValue, alpha = 1) {
   const [r, g, b, a] = hexArr.map(convertHexUnitTo256);
   return `rgba(${r}, ${g}, ${b}, ${getAlphafloat(a, alpha)})`;
 }
-
 export function dynamicLightPrimaryColor(primaryColor, color) {
   primaryColor.forEach((item) => {
     const cssPropName = `--primary-${item.getAttribute("data-id")}`;
@@ -688,16 +618,6 @@ export function dynamicBgImgTransparentPrimaryColor(primaryColor, color) {
   });
 }
 
-function transparentStyle() {
-  document.querySelector(".app")?.classList.remove("light-menu");
-  document.querySelector(".app")?.classList.remove("dark-menu");
-  document.querySelector(".app")?.classList.remove("color-menu");
-  document.querySelector(".app")?.classList.remove("gradient-menu");
-  document.querySelector(".app")?.classList.remove("light-header");
-  document.querySelector(".app")?.classList.remove("color-header");
-  document.querySelector(".app")?.classList.remove("dark-header");
-  document.querySelector(".app")?.classList.remove("gradient-header");
-}
 export function resetData() {
   document.querySelector("#myonoffswitch1").checked = true; //verticalmenu
   document.querySelector("#myonoffswitch4").checked = true; //ltr
@@ -706,13 +626,13 @@ export function resetData() {
   document.querySelector("#myonoffswitch12").checked = true; //ligth menustyle
   document.querySelector("#myonoffswitch16").checked = true; //fullwidh
   document.querySelector("#myonoffswitch18").checked = true; //fixed
-  document.querySelector("#myonoffswitch10").checked = false;
+  // document.querySelector("#myonoffswitch10").checked = false;
   document.querySelector("#myonoffswitch9").checked = false;
   document.querySelector("#myonoffswitch11").checked = false;
   document.querySelector("#myonoffswitch111").checked = false;
   document.querySelector("#myonoffswitch13").checked = false;
   document.querySelector("#myonoffswitch14").checked = false;
-  document.querySelector("#myonoffswitch15").checked = false;
+  // document.querySelector("#myonoffswitch15").checked = false;
   document.querySelector("#myonoffswitch17").checked = false;
   document.querySelector("#myonoffswitch19").checked = false;
   document.querySelector("#myonoffswitch5").checked = false;
@@ -736,8 +656,6 @@ export function resetData() {
   document.querySelector(".app").classList.remove("hover-submenu1");
   document.querySelector(".app").classList.remove("sidenav-toggled");
   document.querySelector(".app").classList.remove("scrollable-layout");
-
-  document.querySelector(".app").classList.add("sidebar-mini");
   document.querySelector(".header").classList.add("app-header");
   document.querySelector(".main-content").classList.add("app-content");
   document.querySelector(".main-container").classList.add("container-fluid");
@@ -753,7 +671,7 @@ export function resetData() {
 
   document.querySelector(".app").classList.add("ltr");
   document.querySelector("html").setAttribute("dir", "ltr");
-  document.getElementById("bootstrapLink").href = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css";
+  addOrRemoveCss(ltr.default);
   document.querySelector(".app").classList.remove("rtl");
   name();
 }
@@ -767,9 +685,6 @@ export function name() {
   let myVarVal =
     localStorage.getItem("zanexprimaryColor") ||
     localStorage.getItem("zanexdarkPrimaryColor") ||
-    localStorage.getItem("zanextransparentPrimaryColor") ||
-    localStorage.getItem("zanextransparent-bgImgPrimaryColor") ||
-    localStorage.getItem("zanextransparentBgImgPrimary") ||
     primaryColorVal;
 
   let colorData = hexToRgba(myVarVal || "#6259ca", 0.1);
@@ -790,16 +705,15 @@ export function name() {
 name();
 
 export function localStorageBackUp() {
+  
   let html = document.querySelector("html")?.style;
   let body = document.querySelector("body");
-//   if (localStorage.getItem("zanexrtl")) {
-//     Rtl();
-// }
-// if (localStorage.getItem("zanexltr")) {
-//   Ltr();
-// }
+
 (localStorage.zanexrtl) && Rtl ();
 (localStorage.zanexltr) && Ltr ();
+if (!(localStorage.getItem('valexrtl')!=null)) {
+  addOrRemoveCss(ltr.default);
+}
   if (localStorage.getItem("zanexlightmode")) {
     LightTheme();
 }
@@ -893,7 +807,6 @@ if (localStorage.zanexrtl) {
     document.getElementById("myonoffswitch6").checked = true;
 
     body.classList.remove("dark-mode");
-    body.classList.remove("transparent-mode");
     html.setProperty(
       "--primary-bg-color",
       localStorage.getItem("zanexprimaryColor")
@@ -928,44 +841,7 @@ if (localStorage.zanexrtl) {
       localStorage.getItem("zanexdarkPrimaryColor")
     );
   }
-  if (localStorage.getItem("zanextransparentPrimaryColor") !== null) {
-    body?.classList.add("transparent-mode");
-    document.getElementById("myonoffswitchTransparent");
 
-    body?.classList.remove("light-mode");
-    body?.classList.remove("dark-mode");
-    html?.setProperty(
-      "--primary-bg-color",
-      localStorage.getItem("zanextransparentPrimaryColor")
-    );
-  }
-  if (localStorage.getItem("zanextransparentBgColor") !== null) {
-    body?.classList.add("transparent-mode");
-    document.getElementById("myonoffswitchTransparent");
-
-    body?.classList.remove("light-mode");
-    body?.classList.remove("dark-mode");
-    html?.setProperty(
-      "--transparent-body",
-      localStorage.getItem("zanextransparentBgColor")
-    );
-  }
-  if (
-    localStorage.getItem("zanextransparent-bgImgPrimaryColor") !== null ||
-    localStorage.getItem("zanexBgImage") !== null
-  ) {
-    body?.classList.add("transparent-mode");
-    document.getElementById("myonoffswitchTransparent");
-
-    body?.classList.remove("light-mode");
-    body?.classList.remove("dark-mode");
-    let img = localStorage.getItem("zanexBgImage");
-    html?.setProperty(
-      "--primary-bg-color",
-      localStorage.getItem("zanextransparent-bgImgPrimaryColor")
-    );
-    body?.classList.add(img);
-  }
   
 
 
@@ -990,9 +866,10 @@ if (localStorage.zanexrtl) {
       ?.classList.add("flex-nowrap");
       document.querySelector("#myonoffswitch1").checked = false;
       document.querySelector("#myonoffswitch2").checked = true;
-    checkHoriMenu();
+    // checkHoriMenu();
     Horizontalmenudefultclose();
     switcherArrowFn();
+    horizontal()
   }
 
   if (localStorage.zanexhorizontalHover) {
@@ -1009,6 +886,7 @@ if (localStorage.zanexrtl) {
     document.querySelector("#slide-left")?.classList.remove("d-none");
     document.querySelector("#slide-right")?.classList.remove("d-none");
     document.querySelector(".main-content")?.classList.remove("app-content");
+
     document
       .querySelector(".main-container")
       ?.classList.remove("container-fluid");
@@ -1019,7 +897,7 @@ if (localStorage.zanexrtl) {
     document.querySelector(".app")?.classList.remove("sidebar-mini");
     document.querySelector(".app")?.classList.remove("sidenav-toggled");
 
-    document.querySelector(".horizontal .side-menu").style.flexWrap = "nowrap";
+    // document.querySelector(".horizontal .side-menu").style.flexWrap = "nowrap";
 
     let li = document.querySelectorAll(".side-menu li");
     li.forEach((e, i) => {
@@ -1035,20 +913,21 @@ if (localStorage.zanexrtl) {
         e?.classList.remove("is-expaned");
       }
     });
-    checkHoriMenu();
+    // checkHoriMenu();
     Horizontalmenudefultclose();
     switcherArrowFn();
-  }
+    HorizontalHoverMenu()
+  } 
 }
 
 export function switcherArrowFn() {
   let slideLeft = document.querySelector(".slide-left");
   let slideRight = document.querySelector(".slide-right");
 
-  slideLeft.addEventListener("click", () => {
+  slideLeft?.addEventListener("click", () => {
     slideClick();
   });
-  slideRight.addEventListener("click", () => {
+  slideRight?.addEventListener("click", () => {
     slideClick();
   });
 
@@ -1075,7 +954,7 @@ export function switcherArrowFn() {
   }
 
   // horizontal arrows
-  window.addEventListener("resize", () => {
+  window?.addEventListener("resize", () => {
     if (
       document.querySelector(".login-img") &&
       document.querySelector(".error-bg")
@@ -1153,7 +1032,7 @@ export function switcherArrowFn() {
   let slideLeftLTR = document.querySelector(".slide-left");
   let slideRightLTR = document.querySelector(".slide-right");
 
-  slideLeftLTR.addEventListener("click", () => {
+  slideLeftLTR?.addEventListener("click", () => {
     let menuWidth = document.querySelector(".horizontal-main");
     let menuItems = document.querySelector(".side-menu");
     let mainSidemenuWidth = document.querySelector(".main-sidemenu");
@@ -1195,7 +1074,7 @@ export function switcherArrowFn() {
       e.style.display = "";
     });
   });
-  slideRightLTR.addEventListener("click", () => {
+  slideRightLTR?.addEventListener("click", () => {
     let menuWidth = document.querySelector(".horizontal-main");
     let menuItems = document.querySelector(".side-menu");
     let mainSidemenuWidth = document.querySelector(".main-sidemenu");
@@ -1235,7 +1114,7 @@ export function switcherArrowFn() {
   let slideLeftRTL = document.querySelector(".slide-leftRTL");
   let slideRightRTL = document.querySelector(".slide-rightRTL");
 
-  slideLeftRTL.addEventListener("click", () => {
+  slideLeftRTL?.addEventListener("click", () => {
     slideClick();
     let menuItems = document.querySelector(".side-menu");
     let marginRightValue =
@@ -1268,7 +1147,7 @@ export function switcherArrowFn() {
       e.style.display = "";
     });
   });
-  slideRightRTL.addEventListener("click", () => {
+  slideRightRTL?.addEventListener("click", () => {
     slideClick();
     let menuWidth = document.querySelector(".horizontal-main");
     let menuItems = document.querySelector(".side-menu");
@@ -1358,4 +1237,14 @@ export function Horizontalmenudefultclose() {
     }
   });
  }
+}
+//
+ function addOrRemoveCss(cssCode) {
+  if (document.head.querySelector(`style[data-name="dynamic-bootstrap"]`)) {
+    document.head.removeChild(document.head.querySelector(`style[data-name="dynamic-bootstrap"]`))
+  } 
+    const styleElement = document.createElement('style');
+    styleElement.setAttribute('data-name', "dynamic-bootstrap");
+    styleElement.textContent = cssCode;
+    document.head.prepend(styleElement);
 }

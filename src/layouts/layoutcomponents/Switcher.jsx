@@ -1,13 +1,20 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import * as Switcherdata from "../../commondata/Switcherdata";
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
  function Switcher() {
+
+  const SwictherClose = () => {
+    document.querySelector(".switcher-backdrop").classList.add("d-block");
+  
+   }
+
   useEffect(() => {
     Switcherdata.localStorageBackUp();
-  });
+  },[]);
+  
   function changePrimaryColor() {
     var userColor = document.getElementById("colorID").value;
     localStorage.setItem("primaryColor", userColor);
@@ -79,140 +86,17 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 
     Switcherdata.name();
   }
-  function transparentPrimaryColor() {
-    var userColor = document.getElementById("transparentPrimaryColorID").value;
 
-    localStorage.setItem("transparentPrimaryColor", userColor);
-
-    const PrimaryTransparent = document.querySelectorAll(
-      "input.color-primary-transparent"
-    );
-
-    Switcherdata.dynamicTransparentPrimaryColor(PrimaryTransparent, userColor);
-
-    document.getElementById("myonoffswitchTransparent").checked = true;
-
-    // Adding
-    document.querySelector("body")?.classList.add("transparent-mode");
-
-    // Removing
-    document.querySelector("body")?.classList.remove("light-mode");
-    document.querySelector("body")?.classList.remove("dark-mode");
-    document.querySelector("body")?.classList.remove("bg-img1");
-    document.querySelector("body")?.classList.remove("bg-img2");
-    document.querySelector("body")?.classList.remove("bg-img3");
-    document.querySelector("body")?.classList.remove("bg-img4");
-
-    localStorage.removeItem("primaryColor");
-    localStorage.removeItem("primaryHoverColor");
-    localStorage.removeItem("primaryBorderColor");
-    localStorage.removeItem("primaryTransparent");
-    localStorage.removeItem("darkPrimaryColor");
-    localStorage.removeItem("transparent-bgImgPrimaryColor");
-    localStorage.removeItem("BgImage");
-
-    Switcherdata.name();
-  }
-  function BgTransparentBackground() {
-    var userColor = document.getElementById("transparentBgColorID").value;
-
-    localStorage.setItem("transparentBgColor", userColor);
-
-    const dynamicBackgroundColor = document.querySelectorAll(
-      "input.color-bg-transparent"
-    );
-
-    Switcherdata.dynamicBgTransparentBackground(
-      dynamicBackgroundColor,
-      userColor
-    );
-
-    document.getElementById("myonoffswitchTransparent").checked = true;
-
-    // Adding
-    document.querySelector("body")?.classList.add("transparent-mode");
-
-    // Removing
-    document.querySelector("body")?.classList.remove("light-mode");
-    document.querySelector("body")?.classList.remove("dark-mode");
-    document.querySelector("body")?.classList.remove("bg-img1");
-    document.querySelector("body")?.classList.remove("bg-img2");
-    document.querySelector("body")?.classList.remove("bg-img3");
-    document.querySelector("body")?.classList.remove("bg-img4");
-    document.querySelector("body")?.classList.remove("light-header");
-    document.querySelector("body")?.classList.remove("color-header");
-    document.querySelector("body")?.classList.remove("dark-header");
-    document.querySelector("body")?.classList.remove("gradient-header");
-    document.querySelector("body")?.classList.remove("light-menu");
-    document.querySelector("body")?.classList.remove("color-menu");
-    document.querySelector("body")?.classList.remove("dark-menu");
-    document.querySelector("body")?.classList.remove("gradient-menu");
-
-    localStorage.removeItem("primaryColor");
-    localStorage.removeItem("primaryHoverColor");
-    localStorage.removeItem("primaryBorderColor");
-    localStorage.removeItem("primaryTransparent");
-    localStorage.removeItem("darkPrimaryColor");
-    localStorage.removeItem("transparent-bgImgPrimaryColor");
-    localStorage.removeItem("BgImage");
-
-    Switcherdata.name();
-  }
-  function BgImgTransparentPrimaryColor() {
-    var userColor = document.getElementById(
-      "transparentBgImgPrimaryColorID"
-    ).value;
-
-    localStorage.setItem("transparent-bgImgPrimaryColor", userColor);
-
-    const dynamicPrimaryImgTransparent = document.querySelectorAll(
-      "input.color-primary-img-transparent"
-    );
-
-    Switcherdata.dynamicBgImgTransparentPrimaryColor(
-      dynamicPrimaryImgTransparent,
-      userColor
-    );
-
-    document.getElementById("myonoffswitchTransparent").checked = true;
-
-    // Adding
-    document.querySelector("body")?.classList.add("transparent-mode");
-
-    // Removing
-    document.querySelector("body")?.classList.remove("light-mode");
-    document.querySelector("body")?.classList.remove("dark-mode");
-
-    localStorage.removeItem("primaryColor");
-    localStorage.removeItem("primaryHoverColor");
-    localStorage.removeItem("primaryBorderColor");
-    localStorage.removeItem("primaryTransparent");
-    localStorage.removeItem("darkPrimaryColor");
-    localStorage.removeItem("transparentPrimaryColor");
-    localStorage.removeItem("transparentBgColor");
-
-    document.querySelector("html").style.removeProperty("--transparent-body");
-
-    if (
-      document.querySelector("body")?.classList.contains("bg-img1") === false &&
-      document.querySelector("body")?.classList.contains("bg-img2") === false &&
-      document.querySelector("body")?.classList.contains("bg-img3") === false &&
-      document.querySelector("body")?.classList.contains("bg-img4") === false
-    ) {
-      document.querySelector("body")?.classList.add("bg-img1");
-      localStorage.setItem("BgImage", "bg-img1");
-    }
-    Switcherdata.name();
-  }
   return (
-
+    <Fragment>
+<div className="switcher-backdrop d-none" onClick={() => SwictherClose()}></div>
     <div className="switcher-wrapper">
       <div className="demo_changer">
         <div className="form_holder sidebar-right1">
         <PerfectScrollbar options={{ suppressScrollX: true, useBothWheelAxes: false }}>
             <Row className="row">
               <div className="predefined_styles">
-                <div className="swichermainleft text-center"> 
+                <div className="swichermainleft text-center">
                 </div>
                 <div className="swichermainleft">
                   <h4>Light Theme Style</h4>
@@ -618,7 +502,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
         </div>
       </div>
     </div>
-
+    </Fragment>
   );
 }
 export default Switcher;

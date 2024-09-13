@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import { Dropdown, Navbar, Container,Button, Form, ListGroup} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Dropdown, Navbar, Container, Button, Form, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Imagesdata } from "../../commondata/commonimages";
 import { MENUITEMS } from '../../commondata/sidemenu';
@@ -36,10 +36,10 @@ export function Header() {
 
     if (document.querySelector("body")?.classList.contains('dark-mode')) {
       document.querySelector("body")?.classList.remove('dark-mode');
-      
+
       localStorage.setItem('zanexlightmode', true)
       localStorage.removeItem('zanexdarkmode');
-  
+
       let myonoffswitch6 = document.querySelector("#myonoffswitch6");
       myonoffswitch6.checked = true;
       let myonoffswitch12 = document.querySelector("#myonoffswitch12");
@@ -49,7 +49,7 @@ export function Header() {
     }
     else {
       document.querySelector("body")?.classList.add('dark-mode');
-      localStorage.setItem("zanexdarkmode" , "true");
+      localStorage.setItem("zanexdarkmode", "true");
       localStorage.removeItem("zanexlightmode");
       let myonoffswitch7 = document.querySelector("#myonoffswitch7");
       myonoffswitch7.checked = true;
@@ -77,7 +77,72 @@ export function Header() {
     document.querySelector(".demo_changer")?.classList.toggle("active");
     document.querySelector(".demo_changer").style.right = "0px";
   };
-  
+  //Search functionality
+  const [show1, setShow1] = useState(false);
+  const [InputValue, setInputValue] = useState("");
+  const [show2, setShow2] = useState(false);
+  const [searchcolor, setsearchcolor] = useState("text-dark");
+  const [searchval, setsearchval] = useState("Type something");
+  const [NavData, setNavData] = useState([]);
+
+  document.addEventListener("click", function () {
+    document.querySelector(".search-result")?.classList.add("d-none")
+  });
+  let myfunction = (inputvalue) => {
+
+    document.querySelector(".search-result")?.classList.remove("d-none")
+
+    let i = []
+    let allElement2 = [];
+
+    MENUITEMS.map(mainlevel => {
+      if (mainlevel.Items) {
+        setShow1(true)
+        mainlevel.Items.map(sublevel => {
+
+          if (sublevel.children) {
+            sublevel.children.map(sublevel1 => {
+
+              i.push(sublevel1)
+              if (sublevel1.children) {
+                sublevel1.children.map(sublevel2 => {
+
+                  i.push(sublevel2)
+                  return sublevel2;
+                })
+              }
+              return sublevel1;
+            })
+          }
+          return sublevel;
+        })
+      }
+      return mainlevel;
+    }
+    )
+    for (let allElement of i) {
+      if (allElement.title.toLowerCase().includes(inputvalue.toLowerCase())) {
+        if (allElement.title.toLowerCase().startsWith(inputvalue.toLowerCase())) {
+          setShow2(true)
+          allElement2.push(allElement)
+        }
+      }
+    }
+    if (!allElement2.length || inputvalue === "") {
+      if (inputvalue === "") {
+        setShow2(false);
+        setsearchval("Type something")
+        setsearchcolor('text-dark')
+      }
+      if (!allElement2.length) {
+        setShow2(false);
+        setsearchcolor('text-danger')
+        setsearchval("There is no component with this name")
+      }
+    }
+    setNavData(allElement2)
+
+  }
   return (
     <Navbar expand="md" className="app-header header sticky">
       <Container fluid className="main-container">
@@ -107,7 +172,7 @@ export function Header() {
           </div>
           <Link
             className="logo-horizontal "
-            to={`${import.meta.env.BASE_URL}ashboard/`}
+            to={`${import.meta.env.BASE_URL}dashboard/`}
           >
             <img
               src={Imagesdata("logo")}
@@ -119,11 +184,30 @@ export function Header() {
               className="header-brand-img light-logo1"
               alt="logo"
             />
+
           </Link>
-            <div className="main-header-center ms-3 d-none d-lg-block">
-                            <Form.Control type="text" id="typehead" placeholder="Search for results..."/>
+          {/* <div className="main-header-center ms-3 d-none d-lg-block">
+                            <Form.Control type="text" defaultValue ={InputValue} id="typehead" placeholder="Search for results..." 
+                                autoComplete="off" onChange={(ele => { myfunction(ele.target.value); setInputValue(ele.target.value) })} />
                             <Button variant='' className="btn px-2 "><i className="fe fe-search" aria-hidden="true"></i></Button>
-                        </div>
+                            {show1 ?
+							<div className="card search-result position-absolute z-index-9 search-fix  border mt-1">
+								<div className="card-header">
+									<h4 className="card-title me-2 text-break">Search result of {InputValue}</h4>
+								</div>
+								<ListGroup className='mt-2 px-3'>
+									{show2 ?
+										NavData.map((e) =>
+											<ListGroup.Item key={Math.random()} className="">
+												<Link to={`${e.path}/`} className='search-result-item' onClick={() => { setShow1(false), setInputValue("") }}>{e.title}</Link>
+											</ListGroup.Item>
+										)
+										: <b className={`${searchcolor} `}>{searchval}</b>}
+								</ListGroup>
+
+							</div>
+							: ""}
+                        </div> */}
           <div className="d-flex order-lg-2 ms-auto header-right-icons">
             <Navbar.Toggle
               aria-controls="navbarScroll"
@@ -204,9 +288,9 @@ export function Header() {
                         </div>
                       </div>
                       <div className="notifications-menu">
-                        <Dropdown.Item
-                          className=" d-flex"
-                          href="#"
+                        <Link
+                          className="dropdown-item d-flex"
+                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
                         >
                           <div className="me-3 notifyimg  bg-primary-gradient brround box-shadow-primary">
                             <i className="fe fe-message-square"></i>
@@ -219,10 +303,10 @@ export function Header() {
                               2 hours ago
                             </span>
                           </div>
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          className=" d-flex"
-                          href="#"
+                        </Link>
+                        <Link
+                          className="dropdown-item  d-flex"
+                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
                         >
                           <div className="me-3 notifyimg  bg-secondary-gradient brround box-shadow-primary">
                             <i className="fe fe-mail"></i>
@@ -235,10 +319,10 @@ export function Header() {
                               1 week ago
                             </span>
                           </div>
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          className=" d-flex"
-                          href="#"
+                        </Link>
+                        <Link
+                          className="dropdown-item  d-flex"
+                          to={`${import.meta.env.BASE_URL}pages/e-commerce/shoppingcart/`}
                         >
                           <div className="me-3 notifyimg  bg-success-gradient brround box-shadow-primary">
                             <i className="fe fe-shopping-cart"></i>
@@ -251,7 +335,7 @@ export function Header() {
                               1 day ago
                             </span>
                           </div>
-                        </Dropdown.Item>
+                        </Link>
                       </div>
                       <div className="dropdown-divider m-0"></div>
                       <Link
@@ -287,9 +371,9 @@ export function Header() {
                         </div>
                       </div>
                       <div className="message-menu">
-                        <Dropdown.Item
-                          className=" d-flex"
-                          href="#"
+                        <Link
+                          className="dropdown-item  d-flex"
+                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
                         >
                           <img
                             alt=""
@@ -305,10 +389,10 @@ export function Header() {
                             </div>
                             <span>Hey! there I' am available....</span>
                           </div>
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          className=" d-flex"
-                          href="#"
+                        </Link>
+                        <Link
+                          className="dropdown-item  d-flex"
+                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
                         >
                           <img
                             alt=""
@@ -324,10 +408,10 @@ export function Header() {
                             </div>
                             <span>New product Launching...</span>
                           </div>
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          className=" d-flex"
-                          href="#"
+                        </Link>
+                        <Link
+                          className="dropdown-item d-flex"
+                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
                         >
                           <img
                             alt=""
@@ -343,10 +427,10 @@ export function Header() {
                             </div>
                             <span>New Schedule Realease......</span>
                           </div>
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          className=" d-flex"
-                          href="#"
+                        </Link>
+                        <Link
+                          className="dropdown-item  d-flex"
+                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
                         >
                           <img
                             alt=""
@@ -362,7 +446,7 @@ export function Header() {
                             </div>
                             <span>New Schedule Realease......</span>
                           </div>
-                        </Dropdown.Item>
+                        </Link>
                       </div>
                       <div className="dropdown-divider m-0"></div>
                       <Link
@@ -398,30 +482,30 @@ export function Header() {
                       </div>
                       <div className="dropdown-divider m-0"></div>
                       <Link className="dropdown-item"
-                        to="#"
+                        to={`${import.meta.env.BASE_URL}pages/profile/`}
                       >
                         <i className="dropdown-icon fe fe-user"></i> Profile
                       </Link>
-                      <Link  className="dropdown-item"
-                         to="#"
+                      <Link className="dropdown-item"
+                        to={`${import.meta.env.BASE_URL}pages/mailInbox/`}
                       >
                         <i className="dropdown-icon fe fe-mail"></i> Inbox
                         <span className="badge bg-secondary float-end">3</span>
                       </Link>
-                      <Link  className="dropdown-item"
-                         to="#"
+                      <Link className="dropdown-item"
+                        to={`${import.meta.env.BASE_URL}pages/mailCompose/`}
                       >
                         <i className="dropdown-icon fe fe-settings"></i>
                         Settings
                       </Link>
-                      <Link  className="dropdown-item"
-                        to="#"
+                      <Link className="dropdown-item"
+                        to={`${import.meta.env.BASE_URL}pages/faqs/`}
                       >
                         <i className="dropdown-icon fe fe-alert-triangle"></i>
                         Need help
                       </Link>
                       <Link className="dropdown-item"
-                        to="#"
+                        to={`${import.meta.env.BASE_URL}`}
                       >
                         <i className="dropdown-icon fe fe-alert-circle"></i>
                         Sign out
@@ -440,12 +524,12 @@ export function Header() {
                 </div>
               </Navbar.Collapse>
             </div>
-            <div
+            {/* <div
               className="demo-icon nav-link icon border-0"
               onClick={() => swichermainright()}
             >
               <i className="fe fe-settings fa-spin"></i>
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>

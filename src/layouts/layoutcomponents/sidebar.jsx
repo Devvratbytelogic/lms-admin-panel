@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { MENUITEMS } from "../../commondata/sidemenu";
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Imagesdata } from "../../commondata/commonimages";
-import { Link,useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 let history = [];
 
@@ -11,62 +11,62 @@ const Sidebar = () => {
   const location = useLocation();
   const [mainmenu, setMainMenu] = useState(MENUITEMS);
 
-     useEffect(() => {
-      history.push(location.pathname);
-      if(history.length > 2) {
-        history.shift();
-      }
-      let mainContent = document.querySelector(".main-content");
+  useEffect(() => {
+    history.push(location.pathname);
+    if (history.length > 2) {
+      history.shift();
+    }
+    let mainContent = document.querySelector(".main-content");
 
-      mainContent.addEventListener("click", mainContentClickFn);
+    mainContent.addEventListener("click", mainContentClickFn);
 
-      return () => {
-        mainContent.removeEventListener("click", mainContentClickFn);
-      };
-     }, [location, mainContentClickFn, setNavActive]);
+    return () => {
+      mainContent.removeEventListener("click", mainContentClickFn);
+    };
+  }, [location, mainContentClickFn, setNavActive]);
 
-     useEffect(() => {
-      setNavActive(location.pathname.endsWith("/") ? location.pathname.slice(0, -1) : location.pathname);
+  useEffect(() => {
+    setNavActive(location.pathname.endsWith("/") ? location.pathname.slice(0, -1) : location.pathname);
 
-      if(
-        document.body.classList.contains("horizontal") && window.innerWidth >= 992
-      );
-     }, [location]);
+    if (
+      document.body.classList.contains("horizontal") && window.innerWidth >= 992
+    );
+  }, [location]);
 
-     if (document.querySelector("body")?.classList.contains("horizontal")) {
+  if (document.querySelector("body")?.classList.contains("horizontal")) {
 
-     }
-     function mainContentClickFn() {
-      if (
-        document.body.classList.contains("horizontal") && window.innerWidth >= 992
-      );
-     }
-     function setNavActive(pathname) {
-      if(MENUITEMS) {
-        MENUITEMS.filter((mainlevel) => {
-          if (mainlevel.Items) {
-            mainlevel.Items.filter((items) => {
-              items.active = false;
-              items.selected = false;
-              if (pathname === "/") {
-                pathname = "/dashboard";
-              }
-              if (pathname === items.path) {
-                items.active = true;
-                items.selected = true;
-              }
-              else if (items.children) {
-                items.children.filter((submenu) => {
-                  submenu.active = false;
-                  submenu.selected = false;
-                  if (pathname == submenu.path) {
-                    items.active = true;
-                    items.selected = true;
-                    submenu.active = true;
-                    submenu.selected = true;
-                  }
-                  else if (submenu.children) {
-                    submenu.children.filter((submenu1) => {
+  }
+  function mainContentClickFn() {
+    if (
+      document.body.classList.contains("horizontal") && window.innerWidth >= 992
+    );
+  }
+  function setNavActive(pathname) {
+    if (MENUITEMS) {
+      MENUITEMS.filter((mainlevel) => {
+        if (mainlevel.Items) {
+          mainlevel.Items.filter((items) => {
+            items.active = false;
+            items.selected = false;
+            if (pathname === "/") {
+              pathname = "/dashboard";
+            }
+            if (pathname === items.path) {
+              items.active = true;
+              items.selected = true;
+            }
+            else if (items.children) {
+              items.children.filter((submenu) => {
+                submenu.active = false;
+                submenu.selected = false;
+                if (pathname == submenu.path) {
+                  items.active = true;
+                  items.selected = true;
+                  submenu.active = true;
+                  submenu.selected = true;
+                }
+                else if (submenu.children) {
+                  submenu.children.filter((submenu1) => {
                     submenu1.active = false;
                     submenu1.selected = false;
                     if (pathname === submenu1.path) {
@@ -78,105 +78,105 @@ const Sidebar = () => {
                       submenu1.selected = true;
                     }
                     return submenu1;
+                  });
+                }
+                return submenu;
+
+              })
+            }
+            return items;
+          })
+        }
+        setMainMenu((arr) => [...arr]);
+        if (document.body.classList.contains('horizontal-hover')) {
+          clearMenuActive();
+        }
+        return mainlevel;
+      });
+    }
+  }
+
+  function toggletNavActive(item) {
+    if (
+      !document.body.classList.contains('horizontal-hover') || window.innerWidth < 992
+    ) {
+      if (!item.active) {
+        MENUITEMS.filter((mainlevel) => {
+          if (mainlevel.Items) {
+            mainlevel.Items.filter(sublevel => {
+              sublevel.active = false;
+              if (item === sublevel) {
+                sublevel.active = true;
+              }
+              if (sublevel.children) {
+                sublevel.children.filter((sublevel1) => {
+                  sublevel1.active = false;
+                  if (item === sublevel1) {
+                    sublevel.active = true;
+                    sublevel1.active = true;
+                  }
+                  if (sublevel1.children) {
+                    sublevel1.children.filter(sublevel2 => {
+                      sublevel2.active = false;
+                      if (item === sublevel2) {
+                        sublevel.active = true;
+                        sublevel1.active = true;
+                        sublevel2.active = true;
+                      }
+                      if (sublevel2.children) {
+                        sublevel2.children.filter(sublevel3 => {
+                          sublevel3.active = false;
+                          if (item === sublevel3) {
+                            sublevel.active = true;
+                            sublevel1.active = true;
+                            sublevel2.active = true;
+                            sublevel3.active = true;
+                          }
+                          return sublevel2;
+                        });
+                      }
+                      return sublevel2;
                     });
                   }
-                    return submenu;
-                  
-                })
+                  return sublevel1;
+                });
               }
-              return items;
-            })
-          }
-          setMainMenu((arr) => [...arr]);
-          if (document.body.classList.contains('horizontal-hover')) {
-            clearMenuActive();
+              return sublevel;
+            });
           }
           return mainlevel;
         });
       }
-     }
-
-     function toggletNavActive(item) {
-      if (
-        !document.body.classList.contains('horizontal-hover') || window.innerWidth < 992
-      ) {
-        if(!item.active) {
-          MENUITEMS.filter((mainlevel) => {
-            if (mainlevel.Items) {
-              mainlevel.Items.filter(sublevel => {
-                sublevel.active = false;
-                if (item === sublevel) {
-                  sublevel.active = true;
-                }
-                if (sublevel.children) {
-                  sublevel.children.filter((sublevel1) => {
-                    sublevel1.active = false;
-                    if (item === sublevel1) {
-                      sublevel.active = true;
-                      sublevel1.active = true;
-                    }
-                    if (sublevel1.children) {
-                      sublevel1.children.filter(sublevel2 => {
-                        sublevel2.active = false;
-                        if (item === sublevel2) {
-                          sublevel.active = true;
-                          sublevel1.active = true;
-                          sublevel2.active = true;
-                        }
-                        if (sublevel2.children) {
-                          sublevel2.children.filter(sublevel3 => {
-                            sublevel3.active = false;
-                            if (item === sublevel3) {
-                              sublevel.active = true;
-                              sublevel1.active = true;
-                              sublevel2.active = true;
-                              sublevel3.active = true;
-                            }
-                            return sublevel2;
-                          });
-                        }
-                        return sublevel2;
-                      });
-                    }
-                    return sublevel1;
-                  });
-                }
-                return sublevel;
-              });
-            }
-            return mainlevel;
-          });
-        }
-        else {
-          item.active = !item.active;
-        }
+      else {
+        item.active = !item.active;
       }
-      setMainMenu(MENUITEMS => [...MENUITEMS]);
-     }
-     function clearMenuActive() {
-      MENUITEMS.filter((mainlevel) => {
-        if (mainlevel.Items) {
-          mainlevel.Items.filter((sublevel) => {
-            sublevel.active = false;
-            if (sublevel.children) {
-              sublevel.children.filter((sublevel1) => {
-                sublevel1.active = false;
-                if (sublevel1.children) {
-                  sublevel1.children.filter((sublevel2) => {
-                    sublevel2.active = false;
-                    return sublevel2;
-                  });
-                }
-                return sublevel1;
-              });
-            }
-            return sublevel;
-          });
-        }
-        return mainlevel;
-      });
-      setMainMenu((arr) => [...arr]);
     }
+    setMainMenu(MENUITEMS => [...MENUITEMS]);
+  }
+  function clearMenuActive() {
+    MENUITEMS.filter((mainlevel) => {
+      if (mainlevel.Items) {
+        mainlevel.Items.filter((sublevel) => {
+          sublevel.active = false;
+          if (sublevel.children) {
+            sublevel.children.filter((sublevel1) => {
+              sublevel1.active = false;
+              if (sublevel1.children) {
+                sublevel1.children.filter((sublevel2) => {
+                  sublevel2.active = false;
+                  return sublevel2;
+                });
+              }
+              return sublevel1;
+            });
+          }
+          return sublevel;
+        });
+      }
+      return mainlevel;
+    });
+    setMainMenu((arr) => [...arr]);
+  }
 
   //Hover effect
   function Onhover() {
@@ -196,7 +196,7 @@ const Sidebar = () => {
         onMouseOver={() => Onhover()}
         onMouseOut={() => Outhover()}
       >
-   <PerfectScrollbar options={{ suppressScrollX: true, useBothWheelAxes: false }}>
+        <PerfectScrollbar options={{ suppressScrollX: true, useBothWheelAxes: false }}>
           <div className="header side-header">
             <Link
               to={`${import.meta.env.BASE_URL}dashboard/`}
@@ -250,22 +250,20 @@ const Sidebar = () => {
             <ul className="side-menu" id="sidebar-main">
               {MENUITEMS.map((levelone) => (
                 <Fragment key={Math.random()}>
-                  <li className="sub-category">
+                  {/* <li className="sub-category">
                     <h3>{levelone.menutitle}</h3>
-                  </li>
+                  </li> */}
                   {levelone.Items.map((menuItem, i) => (
                     <li
-                      className={`slide ${
-                        menuItem.active ? "is-expanded" : ""
-                      }`}
+                      className={`slide ${menuItem.active ? "is-expanded" : ""
+                        }`}
                       key={i}
                     >
                       {menuItem.type === "link" ? (
                         <Link
                           to={menuItem.path + "/"}
-                          className={`side-menu__item ${
-                            menuItem.selected ? "active" : ""
-                          }`}
+                          className={`side-menu__item ${menuItem.selected ? "active" : ""
+                            }`}
                           onClick={() => {
                             setNavActive(menuItem);
                             // toggletNavActive(menuItem);
@@ -292,9 +290,8 @@ const Sidebar = () => {
                       {menuItem.type === "sub" ? (
                         <Link
                           to={menuItem.path + "/"}
-                          className={`side-menu__item ${
-                            menuItem.selected ? "active" : ""
-                          }`}
+                          className={`side-menu__item ${menuItem.selected ? "active" : ""
+                            }`}
                           onClick={(event) => {
                             event.preventDefault();
                             toggletNavActive(menuItem);
@@ -322,14 +319,14 @@ const Sidebar = () => {
                       )}
                       {menuItem.children ? (
                         <ul
-                        className={`slide-menu ${menuItem.active ? "open" : " "}`}
+                          className={`slide-menu ${menuItem.active ? "open" : " "}`}
                           style={
                             menuItem.active
                               ? {
-                                  opacity: 1,
-                                  transition: "opacity 500ms ease-in",
-                                  display: "block",
-                                }
+                                opacity: 1,
+                                transition: "opacity 500ms ease-in",
+                                display: "block",
+                              }
                               : { display: "none" }
                           }
                         >
@@ -340,7 +337,7 @@ const Sidebar = () => {
                                   <Link
                                     to="#"
                                     // className="sub-side-menu__item"
-                                  	className={`sub-side-menu__item ${childrenItem.selected ? "active" : "is-expanded"}`}
+                                    className={`sub-side-menu__item ${childrenItem.selected ? "active" : "is-expanded"}`}
                                     onClick={(event) => {
                                       event.preventDefault();
                                       toggletNavActive(childrenItem);
@@ -374,9 +371,9 @@ const Sidebar = () => {
                                 )}
                                 {childrenItem.children ? (
                                   <ul
-                                  // className="sub-slide-menu"
-                                  className={`sub-slide-menu ${menuItem.active ? "" : "open"
-																}`}
+                                    // className="sub-slide-menu"
+                                    className={`sub-slide-menu ${menuItem.active ? "" : "open"
+                                      }`}
                                     style={
                                       childrenItem.active
                                         ? { display: "block" }
@@ -389,9 +386,9 @@ const Sidebar = () => {
                                           {childrenSubItem.type === "link" ? (
                                             <Link
                                               to={childrenSubItem.path + "/"}
-                                              className={`${`sub-slide-item ${childrenSubItem.selected ? "active" : " " }`
-                                            }`}
-                                            // className={`${"sub-slide-item"}`}
+                                              className={`${`sub-slide-item ${childrenSubItem.selected ? "active" : " "}`
+                                                }`}
+                                              // className={`${"sub-slide-item"}`}
                                               onClick={() =>
                                                 toggletNavActive(
                                                   childrenSubItem
@@ -445,7 +442,7 @@ const Sidebar = () => {
               </svg>
             </div>
           </div>
-</PerfectScrollbar>
+        </PerfectScrollbar>
       </aside>
     </div>
   );

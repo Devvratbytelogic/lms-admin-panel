@@ -1,0 +1,163 @@
+:root {
+    --primary-bg-color: #126b9d;
+    --primary-light-bg-color: #e5eeef;
+    --yellow: #FFE39A;
+    --primary-bg-hover: #233ac5;
+    --primary-bg-border: #5161c1;
+
+}
+
+.side-menu li {
+    margin-bottom: 10px;
+}
+
+.class_list_wrapper {
+    background-color: var(--primary-light-bg-color);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 20px 10px 40px 10px;
+    margin-bottom: 30px;
+}
+
+.icon_color {
+    color: #35656F !important;
+}
+
+.subject {
+    background-color: #F9F9F9;
+    margin-bottom: 0;
+    width: fit-content;
+    padding: 4px 20px;
+    border-radius: 20px;
+}
+
+.css-13cymwt-control {
+    border: 1px solid #C1BBEB !important;
+    outline: none !important;
+    width: 100% !important;
+}
+
+.css-1xc3v61-indicatorContainer {
+    color: #C1BBEB !important;
+}
+
+.select_box,
+.css-1jqq78o-placeholder {
+    font-size: 12px !important;
+    color: #000 !important;
+}
+
+.custom_col {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+}
+
+p {
+    margin-bottom: 0px !important;
+}
+
+
+.class_head {
+    background-color: var(--primary-bg-color);
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    align-items: center;
+    border-radius: 30px 30px 0px 0 !important;
+    padding: 12px;
+}
+
+.class_table_row {
+    border: 1px solid #00000054;
+    height: 50px;
+}
+
+.customm_border_bottom {
+    border-bottom: 1px solid #00000033;
+}
+
+.add_class_btn {
+    background-color: #FAE27C;
+    width: fit-content;
+    margin-left: auto;
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.required_icon {
+    color: red;
+}
+
+.rdt_TableHeadRow {
+    background-color: var(--primary-bg-color) !important;
+    color: #fff !important;
+    border-radius: 10px 10px 0px 0 !important;
+}
+
+.rdt_TableRow {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: 1px solid #A7A9AA40 !important;
+
+}
+
+.rdt_TableCol,
+.rdt_TableCell {
+    border: none !important;
+}
+
+.action_icon_wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.action_icon_wrapper i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.action_icon_wrapper .fa-edit {
+    color: #FAE27C;
+}
+
+.action_icon_wrapper .fa-ellipsis-v {
+    color: #8A8D8E;
+}
+
+.search_bar {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.search_bar .search_input {
+    padding-left: 40px;
+    border-radius: 50px;
+}
+
+.search_bar .search_input::placeholder {
+    color: #8A8D8E !important;
+}
+
+.search_bar .search_icon {
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    color: #8A8D8E;
+}
+
+.search_bar .search_btn {
+    border-radius: 50px;
+    color: #000 !important;
+    padding: 8px 20px;
+    min-width: auto;
+    background-color: var(--yellow) !important;
+    border: none !important;
+}
+
+.search_bar_wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
