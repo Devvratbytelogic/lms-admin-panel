@@ -23,7 +23,7 @@ export default function StudentDetails() {
                     <h3 className={`studen_details_tab ${pathName.page === 'profile' ? 'active' : ''}`}>Profile </h3>
                 </Col>
                 <Col md={1}>
-                    <h3 className={`studen_details_tab ${pathName.page === 'edit_profile' ? 'active' : ''}`}> <Link to={generateEditStudentDetailsPage(id)}>Edit </Link></h3>
+                    <h3 className={`studen_details_tab  ${pathName.page === 'edit_profile' ? 'active' : ''}`} style={{ textAlign: 'center' }}> <Link to={generateEditStudentDetailsPage(id)}>Edit </Link></h3>
                 </Col>
                 <Col md={3}>
                     <h3 className={`studen_details_tab ${pathName.page === 'change_profile_password' ? 'active' : ''}`}><Link to={generateEditStudentDetailsPage(id)}>Change Password </Link></h3>

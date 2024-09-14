@@ -208,17 +208,17 @@ const Sidebar = () => {
                 alt={"logo"}
               />
               <img
-                src={Imagesdata("logo1")}
+                src={Imagesdata("logo")}
                 className="header-brand-img toggle-logo"
                 alt={"logo-1"}
               />
               <img
-                src={Imagesdata("logo2")}
+                src={Imagesdata("logo")}
                 className="header-brand-img light-logo"
                 alt={"logo-2"}
               />
               <img
-                src={Imagesdata("logo3")}
+                src={Imagesdata("logo")}
                 className="header-brand-img light-logo1"
                 alt={"logo-3"}
               />
