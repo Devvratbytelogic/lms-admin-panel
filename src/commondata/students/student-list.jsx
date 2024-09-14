@@ -2,40 +2,50 @@ import React, { useState } from 'react';
 import { Button, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 import { Link } from 'react-router-dom';
+import { generateStudentDetailsPage } from '../../routes/routes';
 
 const columns = [
     {
         name: 'Student Name',
-        selector: row => row.class,
+        cell: (row) => (
+            <div className="student_wrapper">
+                <Link to={generateStudentDetailsPage(row.student_id)} state={{ page: 'profile' }}>
+                    <div className='d-flex gap-2 align-items-center'>
+                        <img src={row.img} alt={""} className='rounded-circle w-25 h-25' />
+                        <div>
+                            <p className='sm text-black'>{row.name}</p>
+                            <p className='secondary_text'>{row.email}</p>
+                        </div>
+                    </div>
+                </Link>
+            </div>
+        ),
         sortable: true,
+        width: '250px',
     },
     {
         name: 'Student Id',
-        cell: (row) => (
-            <div className="student_wrapper">
-                <img src={row.img} alt={""} />
-            </div>
-        ),
+        selector: row => row.student_id,
         sortable: true,
     },
     {
         name: `Class Name`,
-        selector: row => row.teacher_name,
+        selector: row => row.class,
         sortable: true,
     },
     {
         name: `DOB`,
-        selector: row => row.teacher_name,
+        selector: row => row.dob,
         sortable: true,
     },
     {
         name: `Phone Number`,
-        selector: row => row.teacher_name,
+        selector: row => row.phone_number,
         sortable: true,
     },
     {
         name: `Address`,
-        selector: row => row.teacher_name,
+        selector: row => row.address,
         sortable: true,
     },
     {
@@ -57,11 +67,58 @@ const columns = [
 ];
 
 const initialData = [
-    { id: 1, class: 'Class2', section: 'A', teacher_name: 'John Doe' },
-    { id: 2, class: 'Class2', section: 'B', teacher_name: 'Jane Smith' },
-    { id: 3, class: 'Class3', section: 'C', teacher_name: 'Michael Johnson' },
-    { id: 4, class: 'Class4', section: 'D', teacher_name: 'Emily Davis' },
+    {
+        student_id: 'S001',
+        img: 'https://randomuser.me/api/portraits/men/1.jpg',
+        name: 'John Doe',
+        class: '10A',
+        dob: '2005-05-15',
+        phone_number: '555-1234',
+        address: '1234 Elm St, Springfield',
+        email: 'johndoe@example.com',
+    },
+    {
+        student_id: 'S002',
+        img: 'https://randomuser.me/api/portraits/women/1.jpg',
+        name: 'Jane Smith',
+        class: '10B',
+        dob: '2006-06-20',
+        phone_number: '555-5678',
+        address: '5678 Oak St, Springfield',
+        email: 'janesmith@example.com',
+    },
+    {
+        student_id: 'S003',
+        img: 'https://randomuser.me/api/portraits/men/2.jpg',
+        name: 'Michael Brown',
+        class: '9A',
+        dob: '2007-08-25',
+        phone_number: '555-8765',
+        address: '9101 Pine St, Springfield',
+        email: 'michaelbrown@example.com',
+    },
+    {
+        student_id: 'S004',
+        img: 'https://randomuser.me/api/portraits/women/2.jpg',
+        name: 'Emily Davis',
+        class: '8A',
+        dob: '2008-11-30',
+        phone_number: '555-3456',
+        address: '2233 Birch St, Springfield',
+        email: 'emilydavis@example.com',
+    },
+    {
+        student_id: 'S005',
+        img: 'https://randomuser.me/api/portraits/men/3.jpg',
+        name: 'Daniel Wilson',
+        class: '9B',
+        dob: '2006-03-17',
+        phone_number: '555-9012',
+        address: '7890 Maple St, Springfield',
+        email: 'danielwilson@example.com',
+    },
 ];
+
 
 const paginationComponentOptions = {
     rowsPerPageText: 'Rows per page',
@@ -73,7 +130,7 @@ const paginationComponentOptions = {
 const StudentsListDataTable = () => {
     const [filterText, setFilterText] = useState('');
     const filteredData = initialData.filter(item =>
-        item.teacher_name.toLowerCase().includes(filterText.toLowerCase())
+        item.name.toLowerCase().includes(filterText.toLowerCase())
     );
 
     return (
