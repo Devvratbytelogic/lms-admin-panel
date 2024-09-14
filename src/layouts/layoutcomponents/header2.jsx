@@ -3,7 +3,7 @@ import { Dropdown, Navbar, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Imagesdata } from "../../commondata/commonimages";
 
- export function Header2() {
+export function Header2() {
   //full screen
   function Fullscreen() {
     if (
@@ -30,15 +30,15 @@ import { Imagesdata } from "../../commondata/commonimages";
     }
   }
   //dark-mode
-   // Darkmode
-   const DarkMode = () => {
+  // Darkmode
+  const DarkMode = () => {
 
     if (document.querySelector("body")?.classList.contains('dark-mode')) {
       document.querySelector("body")?.classList.remove('dark-mode');
-      
+
       localStorage.setItem('zanexlightmode', true)
       localStorage.removeItem('zanexdarkmode');
-  
+
       let myonoffswitch6 = document.querySelector("#myonoffswitch6");
       myonoffswitch6.checked = true;
       let myonoffswitch12 = document.querySelector("#myonoffswitch12");
@@ -48,7 +48,7 @@ import { Imagesdata } from "../../commondata/commonimages";
     }
     else {
       document.querySelector("body")?.classList.add('dark-mode');
-      localStorage.setItem("zanexdarkmode" , "true");
+      localStorage.setItem("zanexdarkmode", "true");
       localStorage.removeItem("zanexlightmode");
       let myonoffswitch7 = document.querySelector("#myonoffswitch7");
       myonoffswitch7.checked = true;
@@ -87,7 +87,7 @@ import { Imagesdata } from "../../commondata/commonimages";
               className="header-logo"
             >
               <img
-                src={Imagesdata("logo3")}
+                src={Imagesdata("logo")}
                 className="mobile-logo logo-1"
                 alt="logo"
               />

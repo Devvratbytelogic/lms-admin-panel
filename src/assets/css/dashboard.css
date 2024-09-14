@@ -21,8 +21,17 @@
     object-fit: contain;
 }
 
-.side-menu li {
-    margin-bottom: 10px;
+.sub-slide a {
+    padding-bottom: 10px;
+    /* list-style: none; */
+}
+
+.slide.is-expanded .sub-slide a {
+    border-left: 3px solid #377ba0;
+}
+
+.slide.is-expanded .sub-slide a.active {
+    border-left: 3px solid #fff;
 }
 
 .class_list_wrapper {

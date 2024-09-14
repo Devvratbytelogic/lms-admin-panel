@@ -3,6 +3,8 @@ import { Dropdown, Navbar, Container, Button, Form, ListGroup } from "react-boot
 import { Link } from "react-router-dom";
 import { Imagesdata } from "../../commondata/commonimages";
 import { MENUITEMS } from '../../commondata/sidemenu';
+import { options } from "../../commondata/data";
+import { Select } from "@mui/material";
 export function Header() {
   //full screen
 
@@ -149,7 +151,7 @@ export function Header() {
         <div className="d-flex align-items-center">
           <Link
             aria-label="Hide Sidebar"
-            className="app-sidebar__toggle"
+            className="app-sidebar__toggle d-block d-lg-none"
             to="#"
             onClick={() => openCloseSidebar()}
           ></Link>
@@ -159,8 +161,8 @@ export function Header() {
               className="header-logo"
             >
               <img
-                src={Imagesdata("logo3")}
-                className="mobile-logo logo-1"
+                src={Imagesdata("logo")}
+                className="mobile-logo logo-1 w-15"
                 alt="logo"
               />
               <img
@@ -186,28 +188,28 @@ export function Header() {
             />
 
           </Link>
-          {/* <div className="main-header-center ms-3 d-none d-lg-block">
-                            <Form.Control type="text" defaultValue ={InputValue} id="typehead" placeholder="Search for results..." 
-                                autoComplete="off" onChange={(ele => { myfunction(ele.target.value); setInputValue(ele.target.value) })} />
-                            <Button variant='' className="btn px-2 "><i className="fe fe-search" aria-hidden="true"></i></Button>
-                            {show1 ?
-							<div className="card search-result position-absolute z-index-9 search-fix  border mt-1">
-								<div className="card-header">
-									<h4 className="card-title me-2 text-break">Search result of {InputValue}</h4>
-								</div>
-								<ListGroup className='mt-2 px-3'>
-									{show2 ?
-										NavData.map((e) =>
-											<ListGroup.Item key={Math.random()} className="">
-												<Link to={`${e.path}/`} className='search-result-item' onClick={() => { setShow1(false), setInputValue("") }}>{e.title}</Link>
-											</ListGroup.Item>
-										)
-										: <b className={`${searchcolor} `}>{searchval}</b>}
-								</ListGroup>
+          <div className="main-header-center d-none d-lg-block">
+            <Button variant='' className="btn px-2 "><i className="fe fe-search" aria-hidden="true"></i></Button>
+            <Form.Control type="text" defaultValue={InputValue} id="typehead" placeholder="Search"
+              autoComplete="off" onChange={(ele => { myfunction(ele.target.value); setInputValue(ele.target.value) })} />
+            {show1 ?
+              <div className="card search-result position-absolute z-index-9 search-fix  border mt-1">
+                <div className="card-header">
+                  <h4 className="card-title me-2 text-break">Search result of {InputValue}</h4>
+                </div>
+                <ListGroup className='mt-2 px-3'>
+                  {show2 ?
+                    NavData.map((e) =>
+                      <ListGroup.Item key={Math.random()} className="">
+                        <Link to={`${e.path}/`} className='search-result-item' onClick={() => { setShow1(false), setInputValue("") }}>{e.title}</Link>
+                      </ListGroup.Item>
+                    )
+                    : <b className={`${searchcolor} `}>{searchval}</b>}
+                </ListGroup>
 
-							</div>
-							: ""}
-                        </div> */}
+              </div>
+              : ""}
+          </div>
           <div className="d-flex order-lg-2 ms-auto header-right-icons">
             <Navbar.Toggle
               aria-controls="navbarScroll"
@@ -224,14 +226,14 @@ export function Header() {
               >
                 <div className="d-flex order-lg-2">
                   <div className="dropdown d-block d-lg-none">
-                    <Link
+                    {/* <Link
                       to="#"
                       className="nav-link icon"
                       onClick={() => responsivesearch()}
                     >
                       <i className="fe fe-search"></i>
-                    </Link>
-                    <div className="dropdown-menu header-search dropdown-menu-start">
+                    </Link> */}
+                    {/* <div className="dropdown-menu header-search dropdown-menu-start">
                       <div className="input-group w-100 p-2 border">
                         <input
                           type="text"
@@ -242,9 +244,9 @@ export function Header() {
                           <i className="fa fa-search" aria-hidden="true"></i>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
-                  <div className="dropdown d-md-flex">
+                  {/* <div className="dropdown d-md-flex">
                     <Link to="#"
                       className="nav-link icon theme-layout nav-link-bg layout-setting"
                       onClick={() => DarkMode()}
@@ -256,8 +258,8 @@ export function Header() {
                         <i className={`fe ${"fe-sun"}`}></i>
                       </span>
                     </Link>
-                  </div>
-                  <div className="dropdown d-md-flex">
+                  </div> */}
+                  {/* <div className="dropdown d-md-flex">
                     <Link
                       to="#"
                       className="nav-link icon full-screen-link nav-link-bg"
@@ -265,87 +267,16 @@ export function Header() {
                     >
                       <i className="fe fe-minimize fullscreen-button"></i>
                     </Link>
-                  </div>
-                  <Dropdown className="d-md-flex notifications">
-                    <Dropdown.Toggle className="nav-link icon " variant="">
-                      <i className="fe fe-bell"></i>
-                      <span className=" pulse"></span>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu
-                      className=" dropdown-menu-end dropdown-menu-arrow "
-                      style={{ margin: 0 }}
-                    >
-                      <div className="drop-heading border-bottom">
-                        <div className="d-flex">
-                          <h6 className="mt-1 mb-0 fs-16 fw-semibold">
-                            You have Notification
-                          </h6>
-                          <div className="ms-auto">
-                            <span className="badge bg-success rounded-pill">
-                              3
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="notifications-menu">
-                        <Link
-                          className="dropdown-item d-flex"
-                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
-                        >
-                          <div className="me-3 notifyimg  bg-primary-gradient brround box-shadow-primary">
-                            <i className="fe fe-message-square"></i>
-                          </div>
-                          <div className="mt-1">
-                            <h5 className="notification-label mb-1">
-                              New review received
-                            </h5>
-                            <span className="notification-subtext">
-                              2 hours ago
-                            </span>
-                          </div>
-                        </Link>
-                        <Link
-                          className="dropdown-item  d-flex"
-                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
-                        >
-                          <div className="me-3 notifyimg  bg-secondary-gradient brround box-shadow-primary">
-                            <i className="fe fe-mail"></i>
-                          </div>
-                          <div className="mt-1">
-                            <h5 className="notification-label mb-1">
-                              New Mails Received
-                            </h5>
-                            <span className="notification-subtext">
-                              1 week ago
-                            </span>
-                          </div>
-                        </Link>
-                        <Link
-                          className="dropdown-item  d-flex"
-                          to={`${import.meta.env.BASE_URL}pages/e-commerce/shoppingcart/`}
-                        >
-                          <div className="me-3 notifyimg  bg-success-gradient brround box-shadow-primary">
-                            <i className="fe fe-shopping-cart"></i>
-                          </div>
-                          <div className="mt-1">
-                            <h5 className="notification-label mb-1">
-                              New Order Received
-                            </h5>
-                            <span className="notification-subtext">
-                              1 day ago
-                            </span>
-                          </div>
-                        </Link>
-                      </div>
-                      <div className="dropdown-divider m-0"></div>
-                      <Link
-                        to="#"
-                        className=" dropdown-item text-center p-3 text-muted"
-                      >
-                        View all Notification
-                      </Link>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                  </div> */}
+                  {/* <Form.Group className='custom_col mb-2'>
+                    <Select
+                      options={options}
+                      name="category"
+                      placeholder="Select Teacher"
+                      className="select_box"
+                      isSearchable
+                    />
+                  </Form.Group> */}
                   <Dropdown className="dropdown d-md-flex message">
                     <Dropdown.Toggle
                       className="nav-link icon text-center d-flex"
@@ -457,6 +388,87 @@ export function Header() {
                       </Link>
                     </Dropdown.Menu>
                   </Dropdown>
+                  <Dropdown className="d-md-flex notifications">
+                    <Dropdown.Toggle className="nav-link icon " variant="">
+                      <i className="fe fe-bell"></i>
+                      <span className=" pulse"></span>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu
+                      className=" dropdown-menu-end dropdown-menu-arrow "
+                      style={{ margin: 0 }}
+                    >
+                      <div className="drop-heading border-bottom">
+                        <div className="d-flex">
+                          <h6 className="mt-1 mb-0 fs-16 fw-semibold">
+                            You have Notification
+                          </h6>
+                          <div className="ms-auto">
+                            <span className="badge bg-success rounded-pill">
+                              3
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="notifications-menu">
+                        <Link
+                          className="dropdown-item d-flex"
+                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
+                        >
+                          <div className="me-3 notifyimg  bg-primary-gradient brround box-shadow-primary">
+                            <i className="fe fe-message-square"></i>
+                          </div>
+                          <div className="mt-1">
+                            <h5 className="notification-label mb-1">
+                              New review received
+                            </h5>
+                            <span className="notification-subtext">
+                              2 hours ago
+                            </span>
+                          </div>
+                        </Link>
+                        <Link
+                          className="dropdown-item  d-flex"
+                          to={`${import.meta.env.BASE_URL}components/defaultchat/`}
+                        >
+                          <div className="me-3 notifyimg  bg-secondary-gradient brround box-shadow-primary">
+                            <i className="fe fe-mail"></i>
+                          </div>
+                          <div className="mt-1">
+                            <h5 className="notification-label mb-1">
+                              New Mails Received
+                            </h5>
+                            <span className="notification-subtext">
+                              1 week ago
+                            </span>
+                          </div>
+                        </Link>
+                        <Link
+                          className="dropdown-item  d-flex"
+                          to={`${import.meta.env.BASE_URL}pages/e-commerce/shoppingcart/`}
+                        >
+                          <div className="me-3 notifyimg  bg-success-gradient brround box-shadow-primary">
+                            <i className="fe fe-shopping-cart"></i>
+                          </div>
+                          <div className="mt-1">
+                            <h5 className="notification-label mb-1">
+                              New Order Received
+                            </h5>
+                            <span className="notification-subtext">
+                              1 day ago
+                            </span>
+                          </div>
+                        </Link>
+                      </div>
+                      <div className="dropdown-divider m-0"></div>
+                      <Link
+                        to="#"
+                        className=" dropdown-item text-center p-3 text-muted"
+                      >
+                        View all Notification
+                      </Link>
+                    </Dropdown.Menu>
+                  </Dropdown>
+
                   <Dropdown className=" d-md-flex profile-1">
                     <Dropdown.Toggle
                       className="nav-link profile leading-none d-flex px-1"
@@ -512,7 +524,7 @@ export function Header() {
                       </Link>
                     </Dropdown.Menu>
                   </Dropdown>
-                  <div className="dropdown d-md-flex header-settings">
+                  {/* <div className="dropdown d-md-flex header-settings">
                     <Link
                       to="#"
                       className="nav-link icon "
@@ -520,7 +532,7 @@ export function Header() {
                     >
                       <i className="fe fe-menu"></i>
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               </Navbar.Collapse>
             </div>

@@ -53,9 +53,9 @@ export default function Subjects() {
                                 </Row>
                             </Col>
                         </Row>
-                        <Row className='mt-6'>
+                        <div className='mt-6'>
                             <SubjectDataTable />
-                        </Row>
+                        </div>
                     </Card.Body>
                 </Card>
             </Row>

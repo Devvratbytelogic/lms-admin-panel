@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form, Row, Col, Card } from "react-bootstrap";
 import { useFormik } from "formik";
 import Select from "react-select";
 
 export default function Academics() {
+    const [addClass, setAddClass] = useState(false);
     const initialValues = {
         title: "",
         banner_image: "",
@@ -68,7 +69,7 @@ export default function Academics() {
                                     <h3 className="card-title">Classess List</h3>
                                 </Col>
                                 <Col md={6} className='text-end'>
-                                    <div className='add_class_btn'>
+                                    <div className='add_class_btn' onClick={() => setAddClass(true)}>
                                         <i className='fa fa-plus'></i>
                                         <button>Add Class</button>
                                     </div>
@@ -117,11 +118,12 @@ export default function Academics() {
                                     </Row>
                                 </Col>
                                 <Col lg={6} md={6}>
-                                    <Card>
+                                    <Card className={`${addClass ? 'block' : 'd-none'}`}>
                                         <Card.Body className=''>
                                             <Form onSubmit={handleSubmit} className="p-2">
                                                 <Row className='customm_border_bottom mb-4'>
                                                     <h4 className='ps-1 mb-2'>Add Class</h4>
+                                                    {/* <i className='fa fa-remove'></i> */}
                                                 </Row>
                                                 <Row className="mb-2">
                                                     <Form.Group as={Col} md="6" className='custom_col'>
@@ -241,7 +243,7 @@ export default function Academics() {
                                             </Form>
                                         </Card.Body>
                                     </Card>
-                                </Col>
+                                </Col >
                                 <Col lg={3} md={6}>
                                     <Row className='class_list_wrapper '>
                                         <Col><h3 className='h4'>Class 1</h3></Col>
@@ -280,11 +282,11 @@ export default function Academics() {
                                         </div>
                                     </Row>
                                 </Col>
-                            </Row>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
+                            </Row >
+                        </Card.Body >
+                    </Card >
+                </Col >
+            </Row >
         </>
     )
 }
