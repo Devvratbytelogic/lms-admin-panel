@@ -86,7 +86,6 @@ export const MENUITEMS = [
     ],
   },
   {
-
     title: "Syllabus",
     menutitle: "Elements",
     Items: [
@@ -99,6 +98,13 @@ export const MENUITEMS = [
           {
             path: `${import.meta.env.BASE_URL}academic-syllabus`, type: "link", title: "Academic Syllabus",
           },
+          {
+            path: `${import.meta.env.BASE_URL}academic-schedule`, type: "link", title: "Create Syllabus",
+          },
+        ],
+      },
+    ],
+  },
   {
     title: "Exams",
     menutitle: "Elements",
@@ -120,8 +126,6 @@ export const MENUITEMS = [
     ],
   },
 ];
-
-
 
 
 
