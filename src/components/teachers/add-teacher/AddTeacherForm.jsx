@@ -10,7 +10,7 @@ export default function AddTeacherForm() {
                         <Row>
                             <Card>
                                 <Card.Header className='justify-content-between p-0 border-bottom-0'>
-                                    <Button className='rounded-0 title-button'>Add New Teacher</Button>
+                                    <Button className='rounded-0 mb-2 title-button'>Add New Teacher</Button>
                                     <Button variant='' className='filter-button text-black py-0 me-1'><i className='fa fa-plus'>&nbsp; Bulk Upload</i></Button>
                                 </Card.Header>
 

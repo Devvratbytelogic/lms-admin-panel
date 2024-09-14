@@ -25,7 +25,7 @@ export default function AddTeacher() {
             <Row className="mb-6">
                 <Col as={Col} md={6} className='d-flex justify-content-between'>
                     <Row>
-                        <Col as={Col} xs={12} className='mb-3'>
+                        <Col as={Col} xs={12} md={4} className='mb-3'>
                             <Button
                                 onClick={() => setActiveForm('basic')}
                                 variant={activeForm === 'basic' ? 'primary' : 'default'}
@@ -33,7 +33,7 @@ export default function AddTeacher() {
                                 Basic Info
                             </Button>
                         </Col>
-                        <Col as={Col} xs={12} className='mb-3'>
+                        <Col as={Col} xs={12} md={4} className='mb-3'>
                             <Button
                                 onClick={() => setActiveForm('payroll')}
                                 variant={activeForm === 'payroll' ? 'primary' : 'default'}
@@ -41,7 +41,7 @@ export default function AddTeacher() {
                                 Payroll Details
                             </Button>
                         </Col>
-                        <Col as={Col} xs={12} className='mb-3'>
+                        <Col as={Col} xs={12} md={4} className='mb-3'>
                             <Button
                                 onClick={() => setActiveForm('document')}
                                 variant={activeForm === 'document' ? 'primary' : 'default'}
