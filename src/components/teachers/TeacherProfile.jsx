@@ -118,9 +118,9 @@ export default function TeacherProfile() {
                         </Row>
                     </Col>
                 </Row>
-                <Card className="px-3 py-6">
+                <div className="p-0">
                     {renderForm()}
-                </Card>
+                </div>
             </div>
         </>
     )

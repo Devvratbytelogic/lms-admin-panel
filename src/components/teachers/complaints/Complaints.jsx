@@ -58,8 +58,8 @@ export default function Complaints() {
                             </Row>
                             <Row className='border-top-thick-dark pt-3 '>
                                 <Row className='justify-content-between'>
-                                    <Col as={Col} className='fw-semibold'>Complaint's List</Col>
-                                    <Col as={Col} className='d-flex justify-content-end gap-3'>
+                                    <Col as={Col} xs={12} md={6} className='fw-semibold'>Complaint's List</Col>
+                                    <Col as={Col} xs={12} md={6} className='d-flex justify-content-end gap-3'>
                                         <span>
                                             <input className="border border-dark search-input" type="text" placeholder="Search Teacher" />
                                         </span>

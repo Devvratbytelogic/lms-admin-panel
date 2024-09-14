@@ -112,3 +112,6 @@
 .w-100 {
     width: 100% !important;
 }
+.width-inherit{
+    width: inherit;
+}

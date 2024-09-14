@@ -3,7 +3,7 @@ import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 
 export default function DocumentInfo() {
     return (
-        <Card className="p-6">
+        <Card className="p-0">
             <Card.Header className='justify-content-between p-0 border-bottom-0'>
                 <Button className='rounded-0 title-button'>Add New Teacher</Button>
                 {/* <Button variant='' className='filter-button'><i className='fa fa-plus'>&nbsp; Bulf Upload</i></Button> */}
