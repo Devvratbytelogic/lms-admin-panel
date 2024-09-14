@@ -1,0 +1,110 @@
+.search-input {
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.filter-button {
+
+    background-color: rgb(247, 197, 61);
+    color: black;
+    border: none;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.p-datatable-thead {
+    background-color: #126b9d !important;
+
+}
+
+.even-row {
+    background-color: #f9f9f9;
+}
+
+.odd-row {
+    background-color: #fff;
+}
+
+.p-datatable-row-hover {
+    background-color: #ffefef !important;
+}
+
+.p-button-edit {
+    background-color: #f39c12;
+    border-color: #f39c12;
+    color: white;
+}
+
+.p-button-delete {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+}
+
+.p-paginator {
+    justify-content: center;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-paginator .p-paginator-page.p-highlight {
+    background-color: #009ef7;
+    color: white;
+    border-color: transparent;
+}
+
+.input-form {
+    border: 1px solid #C1BBEB;
+    ;
+}
+
+.transparent-btn {
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+    transition: background-color 0.3s ease;
+}
+
+.transparent-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card-style {
+    /* border-radius: 15px;
+    padding: 5px; */
+    background-color: #dc4d5e;
+}
+
+.text-size {
+    font-size: 12px;
+}
+
+.bg-secondry {
+    background-color: rgb(243, 243, 243);
+}
+
+.card {
+    padding: 0 !important;
+    border-radius: 20px !important;
+}
+
+
+.title-button {
+    border-top-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
+
+.sc-eUlrpB {
+    padding: 0 !important;
+}
+
+.border-top-thick-dark {
+    border-top: 1px solid #b8b8b8 !important;
+}
