@@ -99,6 +99,22 @@ export const MENUITEMS = [
           {
             path: `${import.meta.env.BASE_URL}academic-syllabus`, type: "link", title: "Academic Syllabus",
           },
+  {
+    title: "Exams",
+    menutitle: "Elements",
+    Items: [
+      {
+        title: "Exams",
+        icon: "database",
+        type: "sub",
+        active: false,
+        children: [
+          {
+            path: `${import.meta.env.BASE_URL}academic-syllabus`, type: "link", title: "Academic Syllabus",
+          },
+          {
+            path: `${import.meta.env.BASE_URL}academic-schedule`, type: "link", title: "Create Syllabus",
+          },
         ],
       },
     ],

@@ -39,22 +39,28 @@ export default function AcademicSyllabus() {
                             <Card.Title>Class 1</Card.Title>
                         </Col>
                         <Col xs={12} md={6} className='d-flex justify-content-end mt-3 mt-md-0'>
-                            <button className='me-3'><i className='fa fa-edit text-secondary'></i></button>
-                            <button><i className='fa fa-trash text-secondary'></i></button>
+                            <button className='me-3'><i className='fa fa-edit text-secondry'></i></button>
+                            <button><i className='fa fa-trash text-secondry'></i></button>
                         </Col>
                     </Card.Header>
                     <Card.Body>
                         <Row>
                             <Form as={Col} xs={12} md={6} className='d-flex flex-wrap'>
                                 <Form.Group as={Col} xs={12} md={6} className='mb-2'>
-                                    <Form.Select name="trimester">
+                                    <Form.Select
+                                        name="trimester"
+                                        className='border-primary'
+                                    >
                                         <option value="trimester 1">Trimester 1</option>
                                         <option value="trimester 2">Trimester 2</option>
                                         <option value="trimester 3">Trimester 3</option>
                                     </Form.Select>
                                 </Form.Group>
                                 <Form.Group as={Col} xs={12} md={6} className='mb-2'>
-                                    <Form.Select name="subject">
+                                    <Form.Select
+                                        name="subject"
+                                        className='border-primary'
+                                    >
                                         <option value="subject">Subject</option>
                                         <option value="subject 1">Subject 1</option>
                                         <option value="subject 2">Subject 2</option>
@@ -62,7 +68,7 @@ export default function AcademicSyllabus() {
                                 </Form.Group>
                             </Form>
 
-                            <Col as={Col} xs={12} md={6} className='d-flex justify-content-end mt-3 mt-md-0'>
+                            <Col as={Col} xs={12} md={6} className='d-flex justify-content-end align-items-center mt-3 mt-md-0'>
                                 <Button>Search</Button>
                             </Col>
                         </Row>

@@ -23,11 +23,13 @@ export default function AcademicSchedule() {
             <Row>
                 <Col>
                     <Card>
-                        <Card.Header>Academic Schedule</Card.Header>
+                        <Card.Header className='border-bottom-0'>
+                            <Card.Title>Academic Schedule</Card.Title>
+                        </Card.Header>
                         <Card.Body>
                             <Form>
                                 <Row>
-                                    <Col as={Col} md={4}>
+                                    <Col as={Col} xs={12} md={4}>
                                         <Form.Group>
                                             <Form.Label>Select Class</Form.Label>
                                             <Form.Select
@@ -41,7 +43,7 @@ export default function AcademicSchedule() {
                                             </Form.Select>
                                         </Form.Group>
                                     </Col>
-                                    <Col as={Col} md={4}>
+                                    <Col as={Col} xs={12} md={4}>
                                         <Form.Group>
                                             <Form.Label>Select Subject</Form.Label>
                                             <Form.Select
@@ -55,7 +57,7 @@ export default function AcademicSchedule() {
                                             </Form.Select>
                                         </Form.Group>
                                     </Col>
-                                    <Col as={Col} md={4}>
+                                    <Col as={Col} xs={12} md={4}>
                                         <Form.Group>
                                             <Form.Label>Select Trimester</Form.Label>
                                             <Form.Select
@@ -73,7 +75,7 @@ export default function AcademicSchedule() {
                                 <Row className='mt-6'>
                                     <Card className='card-academic-schedule py-3 px-3'>
                                         <Row className=''>
-                                            <Col as={Col} md={6}>
+                                            <Col as={Col} xs={12} md={6} className='mb-3'>
                                                 <Form.Group>
                                                     <Form.Label>Chapter Name</Form.Label>
                                                     <Form.Control
