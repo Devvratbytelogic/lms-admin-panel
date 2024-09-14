@@ -116,10 +116,13 @@ export const MENUITEMS = [
         active: false,
         children: [
           {
-            path: `${import.meta.env.BASE_URL}academic-syllabus`, type: "link", title: "Academic Syllabus",
+            path: `${import.meta.env.BASE_URL}create-exam`, type: "link", title: "Create Exam",
           },
           {
-            path: `${import.meta.env.BASE_URL}academic-schedule`, type: "link", title: "Create Syllabus",
+            path: `${import.meta.env.BASE_URL}exam-schedule`, type: "link", title: "Exam Schedule",
+          },
+          {
+            path: `${import.meta.env.BASE_URL}previous-exam`, type: "link", title: "Previous Exams",
           },
         ],
       },

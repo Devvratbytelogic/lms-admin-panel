@@ -4,7 +4,7 @@
 }
 
 .filter-button {
-    background-color: rgb(247, 197, 61);
+    background-color: rgb(247, 197, 61) !important;
     color: black;
     border: none;
     font-weight: bold;
@@ -136,4 +136,44 @@
 
 .card-academic-schedule {
     background-color: rgb(18, 107, 157) !important;
+}
+
+
+
+.custom-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.custom-table thead {
+    border-radius: 8px 8px 0 0;
+}
+
+.custom-table thead tr th {
+    color: white;
+    text-align: center;
+}
+
+
+.custom-table tbody td {
+    border-radius: 0;
+}
+
+.custom-table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.custom-table {
+    border: 1px solid #dee2e6;
+}
+
+.border-radious-20 {
+    border-radius: 20px;
+    padding: 0;
+    border: red;
+}
+
+.download-button {
+    background-color: rgb(100, 151, 105) !important;
 }

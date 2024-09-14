@@ -13,6 +13,11 @@ import Complaints from '../components/teachers/complaints/Complaints';
 import TeacherProfile from '../components/teachers/TeacherProfile';
 import AcademicSyllabus from '../components/syllabus-section/AcademicSyllabus';
 import AcademicSchedule from '../components/syllabus-section/AcademicSchedule';
+import CreateExam from '../components/exam/CreateExam';
+import ExamSchedule from '../components/exam/ExamSchedule';
+import PreviousExam from '../components/exam/PreviousExam';
+
+
 const Dashboard = lazy(() => import("../components/dashboard/dashboard"));
 
 export const RouterData = [
@@ -32,5 +37,8 @@ export const RouterData = [
     { path: `${import.meta.env.BASE_URL}/teacher-profile`, element: <TeacherProfile /> },
     { path: `${import.meta.env.BASE_URL}/academic-syllabus`, element: <AcademicSyllabus /> },
     { path: `${import.meta.env.BASE_URL}/academic-schedule`, element: <AcademicSchedule /> },
+    { path: `${import.meta.env.BASE_URL}/create-exam`, element: <CreateExam /> },
+    { path: `${import.meta.env.BASE_URL}/exam-schedule`, element: <ExamSchedule /> },
+    { path: `${import.meta.env.BASE_URL}/previous-exam`, element: <PreviousExam /> },
 
 ];
