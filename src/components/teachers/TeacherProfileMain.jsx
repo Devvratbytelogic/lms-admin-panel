@@ -84,7 +84,7 @@ export default function TeacherProfileMain() {
                             <Col xs={12} lg={6}>
                                 <Card className='bg-secondry p-3'>
                                     <h3 className='mb-0'>World History</h3>
-                                    <p className='text-light'>Class VIB</p>
+                                    <p className='text-black '>Class VIB</p>
                                     <Row className='mt-3'>
                                         <span className='text-center'><i className='fa fa-calendar text-danger'></i> &nbsp;March 20, 2021</span>
                                         <span className='text-center'><i className='fa fa-clock-o text-warning'></i> &nbsp;March 20, 2021</span>
@@ -94,7 +94,7 @@ export default function TeacherProfileMain() {
                             <Col xs={12} lg={6}>
                                 <Card className='bg-secondry p-3'>
                                     <h3 className='mb-0'>World History</h3>
-                                    <p className='text-light'>Class VIB</p>
+                                    <p className='text-black'>Class VIB</p>
                                     <Row className='mt-3'>
                                         <span className='text-center'><i className='fa fa-calendar text-danger'></i> &nbsp;March 20, 2021</span>
                                         <span className='text-center'><i className='fa fa-clock-o text-warning'></i> &nbsp;March 20, 2021</span>
@@ -106,7 +106,7 @@ export default function TeacherProfileMain() {
                             <Col xs={12} lg={6}>
                                 <Card className='bg-secondry p-3'>
                                     <h3 className='mb-0'>World History</h3>
-                                    <p className='text-light'>Class VIB</p>
+                                    <p className='text-black'>Class VIB</p>
                                     <Row className='mt-3'>
                                         <span className='text-center'><i className='fa fa-calendar text-danger'></i> &nbsp;March 20, 2021</span>
                                         <span className='text-center'><i className='fa fa-clock-o text-warning'></i> &nbsp;March 20, 2021</span>
@@ -116,7 +116,7 @@ export default function TeacherProfileMain() {
                             <Col xs={12} lg={6}>
                                 <Card className='bg-secondry p-3'>
                                     <h3 className='mb-0'>World History</h3>
-                                    <p className='text-light'>Class VIB</p>
+                                    <p className='text-black'>Class VIB</p>
                                     <Row className='mt-3'>
                                         <span className='text-center'><i className='fa fa-calendar text-danger'></i> &nbsp;March 20, 2021</span>
                                         <span className='text-center'><i className='fa fa-clock-o text-warning'></i> &nbsp;March 20, 2021</span>

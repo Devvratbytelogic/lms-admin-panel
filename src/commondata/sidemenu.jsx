@@ -84,7 +84,25 @@ export const MENUITEMS = [
         ],
       },
     ],
-  }
+  },
+  {
+
+    title: "Syllabus",
+    menutitle: "Elements",
+    Items: [
+      {
+        title: "Syllabus",
+        icon: "database",
+        type: "sub",
+        active: false,
+        children: [
+          {
+            path: `${import.meta.env.BASE_URL}academic-syllabus`, type: "link", title: "Academic Syllabus",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 

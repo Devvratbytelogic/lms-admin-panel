@@ -11,6 +11,8 @@ import AddTeacher from '../components/teachers/add-teacher/AddTeacher';
 import AssignTeacher from '../components/teachers/assign-teacher/AssignTeacher';
 import Complaints from '../components/teachers/complaints/Complaints';
 import TeacherProfile from '../components/teachers/TeacherProfile';
+import AcademicSyllabus from '../components/syllabus-section/AcademicSyllabus';
+import AcademicSchedule from '../components/syllabus-section/AcademicSchedule';
 const Dashboard = lazy(() => import("../components/dashboard/dashboard"));
 
 export const RouterData = [
@@ -28,5 +30,7 @@ export const RouterData = [
     { path: `${import.meta.env.BASE_URL}/assign-teacher`, element: <AssignTeacher /> },
     { path: `${import.meta.env.BASE_URL}/complaints`, element: <Complaints /> },
     { path: `${import.meta.env.BASE_URL}/teacher-profile`, element: <TeacherProfile /> },
+    { path: `${import.meta.env.BASE_URL}/academic-syllabus`, element: <AcademicSyllabus /> },
+    { path: `${import.meta.env.BASE_URL}/academic-schedule`, element: <AcademicSchedule /> },
 
 ];

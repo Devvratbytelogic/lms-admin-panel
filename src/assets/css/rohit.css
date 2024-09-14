@@ -4,7 +4,6 @@
 }
 
 .filter-button {
-
     background-color: rgb(247, 197, 61);
     color: black;
     border: none;
@@ -90,11 +89,9 @@
     background-color: rgb(243, 243, 243);
 }
 
-/* .card {
-    padding: 0 !important;
-    border-radius: 20px !important;
-} */
-
+.text-secondry {
+    color: rgb(210, 206, 206);
+}
 
 .title-button {
     border-top-left-radius: 20px !important;
@@ -112,6 +109,31 @@
 .w-100 {
     width: 100% !important;
 }
-.width-inherit{
+
+.width-inherit {
     width: inherit;
+}
+
+.academic-card {
+    background-color: rgb(229, 238, 239);
+}
+
+.accordian-header {
+    background-color: rgb(18, 107, 157) !important;
+}
+
+.accordion-button {
+    color: white !important;
+}
+
+.accordion-body {
+    background-color: rgb(229, 238, 239) !important;
+}
+
+.accordian-rounded-radious {
+    border-radius: 20px !important;
+}
+
+.card-academic-schedule {
+    background-color: rgb(18, 107, 157) !important;
 }
