@@ -74,7 +74,7 @@ export default function AssignTeacher() {
                             <Row>
                                 <Form>
                                     <Row>
-                                        <Col as={Col} xs={12} md={3} className='px-0'>
+                                        <Col as={Col} xs={12} md={3} className='ps-0'>
                                             <Form.Group>
                                                 <Form.Label>Select Class</Form.Label>
                                                 <Form.Select className='rounded-3 border-primary' >
@@ -85,7 +85,7 @@ export default function AssignTeacher() {
                                                 </Form.Select>
                                             </Form.Group>
                                         </Col>
-                                        <Col as={Col} xs={12} md={3} className='px-0'>
+                                        <Col as={Col} xs={12} md={3} className='ps-0'>
                                             <Form.Group>
                                                 <Form.Label>Select Section</Form.Label>
                                                 <Form.Select className='rounded-3 border-primary' >
@@ -96,7 +96,7 @@ export default function AssignTeacher() {
                                                 </Form.Select>
                                             </Form.Group>
                                         </Col>
-                                        <Col as={Col} xs={12} md={3} className='px-0'>
+                                        <Col as={Col} xs={12} md={3} className='ps-0'>
                                             <Form.Group>
                                                 <Form.Label>Select Subject</Form.Label>
                                                 <Form.Select className='rounded-3 border-primary' >
@@ -107,7 +107,7 @@ export default function AssignTeacher() {
                                                 </Form.Select>
                                             </Form.Group>
                                         </Col>
-                                        <Col as={Col} xs={12} md={3} className='px-0'>
+                                        <Col as={Col} xs={12} md={3} className='ps-0'>
                                             <Form.Group>
                                                 <Form.Label>Select Teacher</Form.Label>
                                                 <Form.Select className='rounded-3 border-primary' >

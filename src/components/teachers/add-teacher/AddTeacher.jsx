@@ -29,6 +29,7 @@ export default function AddTeacher() {
                             <Button
                                 onClick={() => setActiveForm('basic')}
                                 variant={activeForm === 'basic' ? 'primary' : 'default'}
+                                className='w-100'
                             >
                                 Basic Info
                             </Button>

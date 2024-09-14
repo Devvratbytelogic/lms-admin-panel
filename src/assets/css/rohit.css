@@ -108,3 +108,7 @@
 .border-top-thick-dark {
     border-top: 1px solid #b8b8b8 !important;
 }
+
+.w-100 {
+    width: 100% !important;
+}

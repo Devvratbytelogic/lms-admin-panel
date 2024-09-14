@@ -11,7 +11,7 @@ export default function TeacherProfileMain() {
                         <Col md={12}>
                             <Card className='bg-secondry p-3'>
                                 <Row>
-                                    <Col md={4} className='d-grid align-items-center justify-content-center'>
+                                    <Col md={4} className='d-grid align-items-center'>
                                         <img src={profile_circle} alt="Profile" />
                                         <p className='text-primary text-size'>Class Teacher (4th Class)</p>
                                     </Col>
