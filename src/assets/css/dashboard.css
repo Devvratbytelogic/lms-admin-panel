@@ -504,3 +504,27 @@ label {
     height: 1px;
     background: #00000047;
 }
+
+.complaint {
+    background-color: #AC0000;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.complaint .type {
+    color: #FFFFFFA8;
+    font-weight: 500;
+}
+
+.complaint .complaint_text {
+    font-size: 14px;
+}
+
+.complaint_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.complaint_title span {
+    font-weight: 600;
+}

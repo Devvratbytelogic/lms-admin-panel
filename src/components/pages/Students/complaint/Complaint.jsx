@@ -60,7 +60,7 @@ export default function Complaint() {
                     </Form>
                     <hr className="custom_hr" />
                     <div className='mt-6'>
-                        <div className="search_bar">
+                        <Row className="search_bar">
                             <Col as={Col} lg={7} md={12} sm={12} xs={12}>
                                 <h3 className="card-title">Complaint’s List</h3>
                             </Col>
@@ -77,28 +77,28 @@ export default function Complaint() {
                                     <Button type="button" className="btn btn-icon search_btn"> <i className="fa fa-sliders text-black"></i> Filters</Button>
                                 </div>
                             </Col>
-                        </div>
-                        <div className="mt-4">
+                        </Row>
+                        <div className="mt-6">
                             <Row className="justify-content-center">
                                 {[1, 2, 3].map((item, index) => (
-                                    <div key={index} className="col-lg-4">
-                                        <div className="card text-white bg-danger mb-3">
-                                            <div className="card-header d-flex justify-content-between">
-                                                <span>Student's name</span>
-                                                <span>Type</span>
+                                    <Col key={index} md={6} lg={4}>
+                                        <div className="text-white complaint">
+                                            <div className="complaint_title">
+                                                <span className=''>Student's name</span>
+                                                <span className='type'>Type</span>
                                             </div>
-                                            <div className="card-body">
-                                                <p className="card-text">
+                                            <div className="mt-4 mb-4">
+                                                <p className="complaint_text">
                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed placerat mi.
                                                     Pellentesque nulla mauris. Vivamus sed placerat mi. Pellentesque nulla mauris.
                                                 </p>
                                             </div>
-                                            <div className="card-footer d-flex justify-content-between">
+                                            <div className="complaint_title">
                                                 <span>By: Person Name</span>
-                                                <span>Date</span>
+                                                <span >Date</span>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Col>
                                 ))}
                             </Row>
                         </div>
