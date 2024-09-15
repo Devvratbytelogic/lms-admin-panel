@@ -16,6 +16,11 @@ import ReportCards from '../components/pages/Students/report-cards/ReportCards';
 import StudentPromotion from '../components/pages/Students/Student-details/student-promotion/StudentPromotion';
 import Attendance from '../components/pages/Students/Student-details/attendance/Attendance';
 import Complaint from '../components/pages/Students/complaint/Complaint';
+import AcademicSyllabus from '../components/syllabus-section/AcademicSyllabus';
+import AcademicSchedule from '../components/syllabus-section/AcademicSchedule';
+import CreateExam from '../components/exam/CreateExam';
+import ExamSchedule from '../components/exam/ExamSchedule';
+import PreviousExam from '../components/exam/PreviousExam';
 const Dashboard = lazy(() => import("../components/dashboard/dashboard"));
 
 export const RouterData = [

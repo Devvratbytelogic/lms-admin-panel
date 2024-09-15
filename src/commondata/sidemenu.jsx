@@ -100,8 +100,37 @@ export const MENUITEMS = [
       },
     ],
   },
+  // {
+
+  //   title: "Teachers",
+  //   menutitle: "Elements",
+  //   Items: [
+  //     {
+  //       title: "Teachers",
+  //       icon: "database",
+  //       type: "sub",
+  //       active: false,
+  //       children: [
+  //         {
+  //           path: `${import.meta.env.BASE_URL}teachers`, type: "link", title: "Teachers List",
+  //         },
+  //         {
+  //           path: `${import.meta.env.BASE_URL}add-teacher`, type: "link", title: "Add Teacher",
+  //         },
+  //         {
+  //           path: `${import.meta.env.BASE_URL}assign-teacher`, type: "link", title: "Assign Teacher",
+  //         },
+  //         {
+  //           path: `${import.meta.env.BASE_URL}complaints`, type: "link", title: "Complaints",
+  //         },
+
+  //       ],
+  //     },
+  //   ],
+  // },
   {
-    menutitle: "Syllabus",
+    title: "Syllabus",
+    menutitle: "Elements",
     Items: [
       {
         title: "Syllabus",
@@ -109,15 +138,18 @@ export const MENUITEMS = [
         type: "sub",
         active: false,
         children: [
-          // {
-          //   path: `${import.meta.env.BASE_URL}students-list`, type: "link", title: "Students List",
-          // },
+          {
+            path: `${import.meta.env.BASE_URL}academic-syllabus`, type: "link", title: "Academic Syllabus",
+          },
+          {
+            path: `${import.meta.env.BASE_URL}academic-schedule`, type: "link", title: "Create Syllabus",
+          },
         ],
       },
     ],
   },
   {
-    menutitle: "Exam",
+    title: "Exams",
     Items: [
       {
         title: "Exams",
@@ -125,9 +157,15 @@ export const MENUITEMS = [
         type: "sub",
         active: false,
         children: [
-          // {
-          //   path: `${import.meta.env.BASE_URL}students-list`, type: "link", title: "Students List",
-          // },
+          {
+            path: `${import.meta.env.BASE_URL}create-exam`, type: "link", title: "Create Exam",
+          },
+          {
+            path: `${import.meta.env.BASE_URL}exam-schedule`, type: "link", title: "Exam Schedule",
+          },
+          {
+            path: `${import.meta.env.BASE_URL}previous-exam`, type: "link", title: "Previous Exams",
+          },
         ],
       },
     ],

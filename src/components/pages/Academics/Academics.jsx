@@ -26,7 +26,7 @@ export default function Academics() {
                 </Card.Header>
                 <Card.Body className='custom_card_body acadmics_card_body'>
                     <Row>
-                        <Col lg={4} md={6} className='acadmics_column'>
+                        <Col xl={4} lg={6} md={6} className='acadmics_column'>
                             <Row className='class_list_wrapper '>
                                 <Col><h3 className='class_number'>Class 1</h3></Col>
                                 <Col className='text-end h4 icon_color'><i className="fa fa-edit"></i></Col>
@@ -64,7 +64,7 @@ export default function Academics() {
                                 </div>
                             </Row>
                         </Col>
-                        <Col lg={4} md={6} className='acadmics_column'>
+                        <Col xl={4} lg={6} md={6} className='acadmics_column'>
                             <Row className='class_list_wrapper '>
                                 <Col><h3 className='class_number'>Class 2</h3></Col>
                                 <Col className='text-end h4 icon_color'><i className="fa fa-edit"></i></Col>
@@ -102,7 +102,7 @@ export default function Academics() {
                                 </div>
                             </Row>
                         </Col>
-                        <Col lg={4} md={6} className='acadmics_column'>
+                        <Col xl={4} lg={6} md={6} className='acadmics_column'>
                             <Row className='class_list_wrapper '>
                                 <Col><h3 className='class_number'>Class 3</h3></Col>
                                 <Col className='text-end h4 icon_color'><i className="fa fa-edit"></i></Col>
