@@ -11,6 +11,11 @@ import AddTeacher from '../components/teachers/add-teacher/AddTeacher';
 import AssignTeacher from '../components/teachers/assign-teacher/AssignTeacher';
 import Complaints from '../components/teachers/complaints/Complaints';
 import TeacherProfile from '../components/teachers/TeacherProfile';
+import AddStudent from '../components/pages/Students/Student-details/add-student/AddStudent';
+import ReportCards from '../components/pages/Students/report-cards/ReportCards';
+import StudentPromotion from '../components/pages/Students/Student-details/student-promotion/StudentPromotion';
+import Attendance from '../components/pages/Students/Student-details/attendance/Attendance';
+import Complaint from '../components/pages/Students/complaint/Complaint';
 const Dashboard = lazy(() => import("../components/dashboard/dashboard"));
 
 export const RouterData = [
@@ -23,6 +28,11 @@ export const RouterData = [
     { path: `${import.meta.env.BASE_URL}/students-list`, element: <StudentsList /> },
     { path: `${import.meta.env.BASE_URL}/student-details/:id`, element: <StudentDetails /> },
     { path: `${import.meta.env.BASE_URL}/edit-student-details/:id`, element: <EditStudent /> },
+    { path: `${import.meta.env.BASE_URL}/add-student`, element: <AddStudent /> },
+    { path: `${import.meta.env.BASE_URL}/student-report-cards`, element: <ReportCards /> },
+    { path: `${import.meta.env.BASE_URL}/student-promotion`, element: <StudentPromotion /> },
+    { path: `${import.meta.env.BASE_URL}/student-attendance`, element: <Attendance /> },
+    { path: `${import.meta.env.BASE_URL}/complaint`, element: <Complaint /> },
     { path: `${import.meta.env.BASE_URL}/teachers`, element: <Teacher /> },
     { path: `${import.meta.env.BASE_URL}/add-teacher`, element: <AddTeacher /> },
     { path: `${import.meta.env.BASE_URL}/assign-teacher`, element: <AssignTeacher /> },

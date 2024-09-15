@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
+import { Button, Col, Dropdown, Form, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 import { Link } from 'react-router-dom';
 import { generateStudentDetailsPage } from '../../routes/routes';
@@ -29,7 +29,7 @@ const columns = [
         sortable: true,
     },
     {
-        name: `Class Name`,
+        name: `Class`,
         selector: row => row.class,
         sortable: true,
     },
@@ -49,20 +49,27 @@ const columns = [
         sortable: true,
     },
     {
-        name: 'Action',
+        name: 'Report Card',
         cell: (row) => (
-            <div className="action_icon_wrapper">
-                <OverlayTrigger placement="top" overlay={<Tooltip>Edit</Tooltip>}>
-                    <i className="fa fa-edit"></i>
-                </OverlayTrigger>
-                <OverlayTrigger placement="top" overlay={<Tooltip>Delete</Tooltip>}>
-                    <i className="fa fa-trash-o text-danger"></i>
-                </OverlayTrigger>
-                <Link to={generateStudentDetailsPage(row.student_id)} state={{ page: 'profile' }}>
-                    <OverlayTrigger placement="top" overlay={<Tooltip>View</Tooltip>}>
-                        <i className="fa fa-eye"></i>
-                    </OverlayTrigger>
-                </Link>
+            <div className="report_card">
+                <Dropdown className="btn-group mb-2">
+                    <Dropdown.Toggle
+                        type="button"
+                        className="btn dropdown-toggle report_card_dropdown"
+                        variant=""
+                        title="Action"
+                    >
+                        Select
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="w-100">
+                        <Dropdown.Item className='d-flex align-content-center gap-4'>
+                            <i className='fe fe-eye'></i>View
+                        </Dropdown.Item>
+                        <Dropdown.Item className='d-flex align-content-center gap-4'>
+                            <i className='fe fe-download'></i>Download
+                        </Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
             </div>
         ),
     },
@@ -179,7 +186,7 @@ const paginationComponentOptions = {
     selectAllRowsItemText: 'All',
 };
 
-const StudentsListDataTable = () => {
+const ReportCardsDataTable = () => {
     const [filterText, setFilterText] = useState('');
     const filteredData = initialData.filter(item =>
         item.name.toLowerCase().includes(filterText.toLowerCase())
@@ -188,20 +195,54 @@ const StudentsListDataTable = () => {
     return (
         <>
             <Row className="search_bar">
-                <Col as={Col} lg={7} md={12} sm={12} xs={12}></Col>
-                <Col as={Col} lg={5} md={12} sm={12} xs={12}>
-                    <div className='search_bar_wrapper'>
-                        <input
-                            type="text"
-                            placeholder="Search by ID, Name, or Subject"
-                            className="form-control search_input"
-                            value={filterText}
-                            onChange={(e) => setFilterText(e.target.value)}
-                        />
-                        <div className='search_icon'><i className='fa fa-search'></i></div>
-                        <Button type="button" className="btn btn-icon search_btn"> <i className="fa fa-sliders text-black"></i> Filters</Button>
+                <Form>
+                    <div className='student_search_input_wrapper'>
+                        <div className="student_search_input">
+                            <Form.Group className="mb-3" controlId="firstName">
+                                <Form.Label>First Name</Form.Label>
+                                <Form.Control type="text" />
+                            </Form.Group>
+                        </div>
+
+                        <div className="student_search_input">
+                            <Form.Group className="mb-3" controlId="lastName">
+                                <Form.Label>Last Name</Form.Label>
+                                <Form.Control type="text" />
+                            </Form.Group>
+                        </div>
+                        <div className="student_search_input">
+                            <Form.Group className="mb-3" controlId="lastName">
+                                <Form.Label>Select Class</Form.Label>
+                                <Form.Select>
+                                    <option value="">Select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </Form.Select>
+                            </Form.Group>
+                        </div>
+                        <div className="student_search_input">
+                            <Form.Group className="mb-3" controlId="lastName">
+                                <Form.Label>Select Section</Form.Label>
+                                <Form.Select>
+                                    <option value="">Select</option>
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </Form.Select>
+                            </Form.Group>
+                        </div>
+                        <div className="student_search_input">
+                            <Form.Group className="mb-3" controlId="lastName">
+                                <Form.Label>Select Year</Form.Label>
+                                <Form.Control type='date' />
+                            </Form.Group>
+                        </div>
                     </div>
-                </Col>
+                    <Form.Group as={Col} md="12" className='custom_col mt-4 text-end'>
+                        <Button type="submit" className="btn-primary ms-auto px-6 rounded-lg">Search</Button>
+                    </Form.Group>
+                </Form>
             </Row>
 
             <DataTable
@@ -217,4 +258,4 @@ const StudentsListDataTable = () => {
     );
 };
 
-export default StudentsListDataTable;
+export default ReportCardsDataTable;
