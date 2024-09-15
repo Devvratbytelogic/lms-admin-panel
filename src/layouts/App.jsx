@@ -6,8 +6,7 @@ import Switcher from "./layoutcomponents/Switcher";
 import RightSidebar from "./layoutcomponents/rightsidebar";
 import * as Switcherdata from "../commondata/Switcherdata";
 import { Outlet } from "react-router-dom";
-import { Provider } from 'react-redux';
-import store from '../redux/store';
+import Modal from "./modal/Modal";
 
 export default function App() {
 
@@ -16,30 +15,29 @@ export default function App() {
 
   return (
     <Fragment>
-      <Provider store={store}>
-        <div className="horizontalMenucontainer">
-          <Switcher />
-          <div className="page">
-            <div className="page-main">
-              <Header />
-              <Sidebar />
-              <div className="main-content app-content ">
-                <div className="side-app">
-                  <div className="main-container container-fluid"
-                    onClick={() => {
-                      Switcherdata.responsiveSidebarclose();
-                      Switcherdata.Horizontalmenudefultclose();
-                    }}>
-                    <Outlet />
-                  </div>
+      <div className="horizontalMenucontainer">
+        <Switcher />
+        <div className="page">
+          <div className="page-main">
+            <Header />
+            <Sidebar />
+            <Modal />
+            <div className="main-content app-content ">
+              <div className="side-app">
+                <div className="main-container container-fluid"
+                  onClick={() => {
+                    Switcherdata.responsiveSidebarclose();
+                    Switcherdata.Horizontalmenudefultclose();
+                  }}>
+                  <Outlet />
                 </div>
               </div>
             </div>
-            <RightSidebar />
-            <Footer />
           </div>
+          <RightSidebar />
+          <Footer />
         </div>
-      </Provider>
+      </div>
     </Fragment>
   );
 }

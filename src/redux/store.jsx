@@ -1,12 +1,10 @@
-import { createStore, applyMiddleware } from "redux";
-import reducer from "./reducer";
-import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
+import allModalSlice from "./slice/allModalSlice";
 
-const middleware = [thunk]
-
-const store = createStore(
-    reducer,
-    (applyMiddleware(...middleware))
-)
-
-export default store
+export const store = configureStore({
+    reducer: {
+        allCommonModal: allModalSlice,
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
+    devTools: true
+})

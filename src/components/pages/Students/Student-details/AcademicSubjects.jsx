@@ -12,7 +12,7 @@ const subjects = [
 const AcademicSubjects = () => {
     return (
         <div>
-            <h4 className='fw-semibold'>Academic Subjects</h4>
+            <h4 className='card-title'>Academic Subjects</h4>
             <Row>
                 {subjects.map((subject, index) => (
                     <Col key={index} md={6} className="mb-3">

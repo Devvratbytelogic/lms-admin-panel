@@ -1,25 +1,23 @@
 import React from 'react'
-import { Button, Form, Row, Col, Card } from "react-bootstrap";
-import StudentsListDataTable from '../../../commondata/students/student-list';
+import { Row, Col, Card } from "react-bootstrap";
+import ReportCardsDataTable from '../../../../commondata/students/report-cards';
 
 
-export default function ClassTeacher() {
+export default function ReportCards() {
     return (
         <>
-            {/* <Row> */}
             <Card className='mt-0 pt-0'>
                 <Card.Header className="card-header border-bottom-0">
                     <Row className='w-100'>
                         <Col md={6}>
-                            <h3 className="card-title">All Students List </h3>
+                            <h3 className="card-title">Report Card Section </h3>
                         </Col>
                     </Row>
                 </Card.Header>
                 <Card.Body className='pt-0'>
-                    <StudentsListDataTable />
+                    <ReportCardsDataTable />
                 </Card.Body>
             </Card>
-            {/* </Row> */}
         </>
     )
 }

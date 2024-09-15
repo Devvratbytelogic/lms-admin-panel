@@ -40,6 +40,7 @@
     overflow: hidden;
     padding: 20px 10px 40px 10px;
     margin-bottom: 30px;
+    width: 100%;
 }
 
 .icon_color {
@@ -51,6 +52,7 @@
     margin-bottom: 0;
     width: fit-content;
     padding: 4px 20px;
+    font-family: 'Poppins', sans-serif !important;
     border-radius: 20px;
 }
 
@@ -66,13 +68,15 @@
 
 .select_box,
 .css-1jqq78o-placeholder {
-    font-size: 12px !important;
+    font-size: 14px !important;
     color: #000 !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .custom_col {
     padding-left: 0.25rem !important;
     padding-right: 0.25rem !important;
+    margin-bottom: 4px;
 }
 
 p {
@@ -92,7 +96,7 @@ p {
 
 .class_table_row {
     border: 1px solid #00000054;
-    height: 50px;
+    height: 40px;
 }
 
 .customm_border_bottom {
@@ -122,6 +126,11 @@ p {
     border-right: none !important;
     border-top: none !important;
     border-bottom: 1px solid #A7A9AA40 !important;
+
+}
+
+.bordered_data_table .rdt_TableRow {
+    border: 1px solid #A7A9AA40 !important;
 
 }
 
@@ -172,7 +181,7 @@ p {
 
 .search_bar .search_btn {
     border-radius: 50px;
-    color: #000 !important;
+    color: #242424 !important;
     padding: 8px 20px;
     min-width: auto;
     background-color: var(--yellow) !important;
@@ -196,12 +205,21 @@ p {
 
 }
 
+.student_tab {
+    display: flex;
+    gap: 30px;
+}
+
 .studen_details_tab.active {
     background-color: var(--primary-bg-color);
     color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 4px;
+}
+
+.studen_details_tab.active a:hover {
+    color: #fff;
 }
 
 .profile-card {
@@ -283,5 +301,230 @@ p {
 .academic_subjects_title {
     color: var(--blue);
     font-size: 18px;
+    font-weight: 700;
+}
+
+.main-header-center .form-control::placeholder {
+    font-size: 14px !important;
     font-weight: 500;
+    /* padding-left: 2.5rem !important; */
+}
+
+.main-header-center .fe-search {
+    font-size: 20px !important;
+    font-weight: 500;
+}
+
+.custom_card_header {
+    padding-top: 50px;
+}
+
+.modal-content {
+    border-radius: 10px;
+}
+
+.custom_card_body {
+    padding-left: 60px;
+    padding-right: 40px;
+}
+
+.class_list_wrapper .class_number {
+    font-size: 22px !important;
+    font-weight: 500 !important;
+}
+
+.poppins_font,
+label {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.edit_icon {
+    color: #FAE27C;
+}
+
+@media screen and (max-width: 680px) {
+    .card-body {
+        padding: 10px !important;
+    }
+
+    .acadmics_card_body {
+        padding-left: 30px !important;
+    }
+}
+
+
+
+/* date picker */
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 5px 10px;
+    width: 200px;
+    background-color: #f9f9f9;
+}
+
+.calendar-icon {
+    color: #ccc;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.custom-input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #ccc;
+    background-color: transparent;
+    width: 100%;
+}
+
+.custom-input::placeholder {
+    color: #ccc;
+}
+
+.custom-input:focus {
+    border: none;
+    outline: none;
+}
+
+.edit_student_btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+}
+
+.sticky_student_btn {
+    color: #fff;
+    background: var(--primary-bg-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 20px 0;
+}
+
+.dnd_field {
+    border: 1px dashed #C1BBEB;
+    text-align: center;
+    padding: 47px;
+    width: 250px;
+}
+
+.dnd_field2 {
+    border: 1px dashed #C1BBEB;
+    text-align: center;
+    padding: 9px;
+}
+
+.optional {
+    color: #0000006B;
+}
+
+.dnd_field2_text {
+    visibility: hidden;
+}
+
+.edit_student_submit_btn button {
+    border-radius: 50px;
+    padding: 10px 20px !important;
+}
+
+.edit_student_submit_btn .btn-outline {
+    background-color: transparent !important;
+    color: #4D44B5 !important;
+    border: 2px solid #4D44B5 !important;
+}
+
+.edit_student_form .form-control::placeholder {
+    color: #A098AE !important;
+    font-size: 14px !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.report_card_dropdown {
+    background-color: #649769;
+    border-radius: 15px;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.report_card .dropdown-menu,
+.attendance_dropdown .dropdown-menu {
+    background-color: #8AB7BA;
+    padding: 5px !important;
+    border: 0;
+}
+
+.report_card .dropdown-item,
+.attendance_dropdown .dropdown-item {
+    color: #000;
+    margin-bottom: 5px;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.report_card i {
+    color: #35656f;
+    font-size: 25px;
+}
+
+.report_card .dropdown-item:hover,
+.attendance_dropdown .dropdown-item:hover {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.attendance_card_dropdown {
+    border: 1px solid #000000C4;
+    padding-left: 150px;
+}
+
+.student_search_input_wrapper {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+}
+
+.student_search_input_wrapper .student_search_input {
+    width: 100%;
+}
+
+@media screen and (max-width: 1080px) {
+    .student_search_input_wrapper {
+        flex-wrap: wrap;
+    }
+}
+
+.custom_hr {
+    border: 0;
+    height: 1px;
+    background: #00000047;
+}
+
+.complaint {
+    background-color: #AC0000;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.complaint .type {
+    color: #FFFFFFA8;
+    font-weight: 500;
+}
+
+.complaint .complaint_text {
+    font-size: 14px;
+}
+
+.complaint_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.complaint_title span {
+    font-weight: 600;
 }

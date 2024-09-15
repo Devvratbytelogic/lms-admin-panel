@@ -5,6 +5,9 @@ import Loader from './layouts/layoutcomponents/loader';
 import './index.scss'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { RouterData } from './commondata/routingdata';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
+import '@fontsource/poppins';
 const Switcherlayout = lazy(() => import("./layouts/switcherlayout"));
 const Custompages = lazy(() => import("./layouts/custompages"));
 //custom Pages
@@ -25,36 +28,38 @@ const Signup = lazy(() => import('./layouts/firebase/firebaseauth/signup'))
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Fragment>
     <BrowserRouter>
-      <React.Suspense fallback={<Loader />}>
-        <Routes>
+      <Provider store={store}>
+        <React.Suspense fallback={<Loader />}>
+          <Routes>
 
-          <Route path={`${import.meta.env.BASE_URL}`} element={<Auth />} >
-            <Route index element={<Authlogin />} />
-            <Route path={`${import.meta.env.BASE_URL}firebaseauth/authlogin`} element={<Authlogin />} />
-            <Route path={`${import.meta.env.BASE_URL}firebaseauth/signup`} element={<Signup />} />
-          </Route>
-
-          {RouterData.map((idx) => (
-            <Route path={`${import.meta.env.BASE_URL}`} element={<App />} key={Math.random()}>
-              <Route path={idx.path} element={idx.element} />
+            <Route path={`${import.meta.env.BASE_URL}`} element={<Auth />} >
+              <Route index element={<Authlogin />} />
+              <Route path={`${import.meta.env.BASE_URL}firebaseauth/authlogin`} element={<Authlogin />} />
+              <Route path={`${import.meta.env.BASE_URL}firebaseauth/signup`} element={<Signup />} />
             </Route>
-          ))};
-          <Route
-            path={`${import.meta.env.BASE_URL}pages/themeStyle`} element={<Switcherlayout />} />
-          <Route
-            path={`${import.meta.env.BASE_URL}`} element={<Custompages />}>
-            <Route path={`${import.meta.env.BASE_URL}custompages/login`} element={<Login />} />
-            <Route path={`${import.meta.env.BASE_URL}custompages/register`} element={<Register />} />
-            <Route path={`${import.meta.env.BASE_URL}custompages/forgotpassword`} element={<ForgotPassword />} />
-            <Route path={`${import.meta.env.BASE_URL}custompages/lockscreen`} element={<LockScreen />} />
-            <Route path={`${import.meta.env.BASE_URL}custompages/errorpages/errorpage401`} element={<Errorpage401 />} />
-            <Route path={`${import.meta.env.BASE_URL}custompages/errorpages/errorpage403`} element={<Errorpage403 />} />
-            <Route path={`${import.meta.env.BASE_URL}custompages/errorpages/errorpage500`} element={<Errorpage500 />} />
-            <Route path={`${import.meta.env.BASE_URL}custompages/errorpages/errorpage503`} element={<Errorpage503 />} />
-            <Route path="*" element={<Errorpage400 />} />
-          </Route>
-        </Routes>
-      </React.Suspense>
+
+            {RouterData.map((idx) => (
+              <Route path={`${import.meta.env.BASE_URL}`} element={<App />} key={Math.random()}>
+                <Route path={idx.path} element={idx.element} />
+              </Route>
+            ))};
+            <Route
+              path={`${import.meta.env.BASE_URL}pages/themeStyle`} element={<Switcherlayout />} />
+            <Route
+              path={`${import.meta.env.BASE_URL}`} element={<Custompages />}>
+              <Route path={`${import.meta.env.BASE_URL}custompages/login`} element={<Login />} />
+              <Route path={`${import.meta.env.BASE_URL}custompages/register`} element={<Register />} />
+              <Route path={`${import.meta.env.BASE_URL}custompages/forgotpassword`} element={<ForgotPassword />} />
+              <Route path={`${import.meta.env.BASE_URL}custompages/lockscreen`} element={<LockScreen />} />
+              <Route path={`${import.meta.env.BASE_URL}custompages/errorpages/errorpage401`} element={<Errorpage401 />} />
+              <Route path={`${import.meta.env.BASE_URL}custompages/errorpages/errorpage403`} element={<Errorpage403 />} />
+              <Route path={`${import.meta.env.BASE_URL}custompages/errorpages/errorpage500`} element={<Errorpage500 />} />
+              <Route path={`${import.meta.env.BASE_URL}custompages/errorpages/errorpage503`} element={<Errorpage503 />} />
+              <Route path="*" element={<Errorpage400 />} />
+            </Route>
+          </Routes>
+        </React.Suspense>
+      </Provider>
     </BrowserRouter>
   </Fragment>
 

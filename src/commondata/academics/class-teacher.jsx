@@ -60,8 +60,8 @@ const ClassTeacherDataTable = () => {
     return (
         <>
             <Row className="search_bar">
-                <Col as={Col} md={7} ></Col>
-                <Col as={Col} md={5} >
+                <Col as={Col} lg={7} md={12} sm={12} xs={12} ></Col>
+                <Col as={Col} lg={5} md={12} sm={12} xs={12} >
                     <div className='search_bar_wrapper'>
                         <input
                             type="text"

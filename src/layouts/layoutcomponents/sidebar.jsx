@@ -270,7 +270,7 @@ const Sidebar = () => {
                           }}
                         >
                           <i
-                            className={`side-menu__icon fe fe-${menuItem.icon}`}
+                            className={`side-menu__icon ${menuItem.icon}`}
                           ></i>
                           <span className="side-menu__label">
                             {menuItem.title}
@@ -298,7 +298,7 @@ const Sidebar = () => {
                           }}
                         >
                           <i
-                            className={`side-menu__icon fe fe-${menuItem.icon}`}
+                            className={`side-menu__icon ${menuItem.icon}`}
                           ></i>
                           <span className="side-menu__label">
                             {menuItem.title}

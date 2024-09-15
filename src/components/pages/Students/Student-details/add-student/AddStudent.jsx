@@ -5,18 +5,17 @@ import 'filepond/dist/filepond.min.css';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { generateEditStudentDetailsPage, generateStudentDetailsPage } from '../../../../../routes/routes';
 
-const EditStudent = () => {
+const AddStudent = () => {
     const location = useLocation();
     const pathName = location.state;
     const { id } = useParams()
     return (
         <div className='edit_student_form'>
-            <div className='my-5 align-items-center student_tab'>
+            {/* <div className='my-5 align-items-center student_tab'>
                 <h3 className={`studen_details_tab ${pathName?.page === 'profile' ? 'active' : ''}`}><Link to={generateStudentDetailsPage(id)} state={{ page: 'profile' }}>Profile</Link> </h3>
                 <h3 className={`studen_details_tab  ${pathName?.page === 'edit_profile' ? 'active' : ''}`} style={{ textAlign: 'center' }}> <Link to={generateEditStudentDetailsPage(id)} state={{ page: 'edit_profile' }}>Edit </Link></h3>
                 <h3 className={`studen_details_tab ${pathName?.page === 'change_profile_password' ? 'active' : ''}`} state={{ page: 'change_profile_password' }}><Link to={`#`}>Change Password </Link></h3>
-                {/* <h3 className={`studen_details_tab ${pathName?.page === 'change_profile_password' ? 'active' : ''}`} state={{ page: 'change_profile_password' }}><Link to={generateEditStudentDetailsPage(id)}>Change Password </Link></h3> */}
-            </div>
+            </div> */}
             <Card>
                 <Card.Header className="card-header border-bottom-0 position-relative">
                     <div className='sticky_student_btn'>
@@ -209,28 +208,4 @@ const EditStudent = () => {
     );
 };
 
-export default EditStudent;
-
-
-
-// import React from 'react'
-// import { Card } from 'react-bootstrap'
-
-// export default function EditStudent() {
-//     return (
-//         <>
-//             <Card className='mt-0 pt-0 position-relative'>
-//                 <div className='add_class_btn edit_student_btn px-3' onClick={() => dispatch(openModal({ componentName: 'AddClass', data: 'check' }))}>
-//                     {/<span className="required_icon">*</span> <i className='icon icon-note'></i> <span className="required_icon">*</span>/}
-//                     <button>Bulk Addmission</button>
-//                 </div>
-//                 <Card.Header className="bg-primary text-white">
-//                     <h4>Add New Student</h4>
-//                 </Card.Header>
-//                 <Card.Body>
-
-//                 </Card.Body>
-//             </Card>
-//         </>
-//     )
-// }
+export default AddStudent;

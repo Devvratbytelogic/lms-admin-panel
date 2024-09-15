@@ -11,7 +11,7 @@ const subjects = [
 const ExtraCurricularSubjects = () => {
     return (
         <div>
-            <h4 className='fw-semibold'>Extracurricular Subjects</h4>
+            <h4 className='card-title'>Extracurricular Subjects</h4>
             <Row>
                 {subjects.map((subject, index) => (
                     <Col key={index} md={6} className="mb-3">
